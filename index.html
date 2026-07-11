@@ -578,24 +578,29 @@ h3{font-size:16px;font-weight:600;letter-spacing:-.012em;margin-bottom:5px}
 const items = [...document.querySelectorAll('.sb-item')];
 const panes = [...document.querySelectorAll('.pane')];
 const contentEl = document.querySelector('.content');
-const ratios = new Map();
 function setActive(id){
   items.forEach(i => i.classList.toggle('on', i.getAttribute('href') === '#'+id));
 }
-const spy = new IntersectionObserver(es => {
-  es.forEach(e => ratios.set(e.target.id, e.intersectionRatio));
-  let best = null, top = 0;
-  panes.forEach(p => {
-    const r = ratios.get(p.id) || 0;
-    if (r > top) { top = r; best = p.id; }
-  });
-  if (best) setActive(best);
-}, {root: contentEl, threshold: [0, .2, .4, .6, .8, 1]});
-panes.forEach(p => spy.observe(p));
-setActive('top');
+function syncActive(){
+  const line = 140;
+  let current = panes[0].id;
+  for (const p of panes){
+    if (p.getBoundingClientRect().top - 1 <= line) current = p.id;
+  }
+  const c = contentEl;
+  const cBottom = c && (c.scrollHeight - c.scrollTop - c.clientHeight < 4);
+  const wBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4);
+  if (cBottom || wBottom) current = panes[panes.length - 1].id;
+  setActive(current);
+}
+if (contentEl) contentEl.addEventListener('scroll', syncActive, {passive:true});
+window.addEventListener('scroll', syncActive, {passive:true});
+window.addEventListener('resize', syncActive);
+syncActive();
+
 items.forEach(a => a.addEventListener('click', ev => {
   const t = document.querySelector(a.getAttribute('href'));
-  if (t) { ev.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+  if (t) { ev.preventDefault(); setActive(t.id); t.scrollIntoView({behavior:'smooth', block:'start'}); }
 }));
 
 /* the ladder */
