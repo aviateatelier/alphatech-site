@@ -9,261 +9,317 @@
 <link rel="apple-touch-icon" href="img/logo-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#05061a;
-  --bg-card:#0c1029;
-  --bg-card-2:#10143a;
-  --text-1:#eef0fa;
-  --text-2:#c3c7dd;
-  --text-3:#7d82a0;
-  --line:#1d2246;
-  --line-2:#2b3160;
-  --accent:#5b67ff;
-  --accent-soft:rgba(91,103,255,.12);
+  --bg:#070a1c;
+  --bg-2:#0b0f2b;
+  --card:#0e1230;
+  --card-2:#131840;
+  --text-1:#f2f3fb;
+  --text-2:#c9cde2;
+  --text-3:#8288a8;
+  --line:#20264e;
+  --line-2:#2e356b;
   --gold:#d9a054;
-  --gold-2:#e3b06b;
-  --gold-dark:#c98d3e;
-  --gold-soft:rgba(217,160,84,.12);
+  --gold-2:#e8bc79;
+  --teal:#2dd4bf;
   --green:#4ade80;
+  --blue:#60a5fa;
+  --purple:#a78bfa;
   --red:#f87171;
-  --font:'Inter',system-ui,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Archivo',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text-1);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased}
-.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-section{scroll-margin-top:84px}
+body{background:var(--bg);color:var(--text-1);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{scroll-margin-top:90px}
 
 /* ── nav ── */
-.nav{position:sticky;top:0;z-index:60;background:rgba(5,6,26,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-in{height:66px;display:flex;align-items:center;gap:26px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-1);font-weight:800;font-size:16px;letter-spacing:-.01em}
-.brand img{width:32px;height:32px;border-radius:8px}
-.nav-links{display:flex;gap:22px}
-.nav-links a{color:var(--text-3);font-size:14px;font-weight:500;text-decoration:none;transition:color .15s}
-.nav-links a:hover,.nav-links a.on{color:var(--text-1)}
-.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px}
-.nav-social{display:flex;gap:4px;margin-right:8px}
-.nav-social a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;color:var(--text-3);transition:color .15s,background .15s}
-.nav-social a:hover{color:var(--gold);background:rgba(255,255,255,.05)}
+.nav{position:sticky;top:0;z-index:80;background:rgba(7,10,28,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-in{height:70px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--text-1)}
+.brand img{width:36px;height:36px;border-radius:9px}
+.brand b{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.01em}
+.nav-links{display:flex;gap:4px;margin:0 auto}
+.nav-links a{color:var(--text-2);font-size:14.5px;font-weight:500;text-decoration:none;padding:8px 14px;border-radius:100px;transition:background .15s,color .15s}
+.nav-links a:hover{background:rgba(255,255,255,.06);color:var(--text-1)}
+.nav-links a.on{background:rgba(217,160,84,.14);color:var(--gold-2)}
+.nav-right{display:flex;align-items:center;gap:6px}
+.nav-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;color:var(--text-3);transition:color .15s,background .15s}
+.nav-social a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 .nav-social svg{width:16px;height:16px}
-@media(max-width:900px){.nav-links{display:none}.nav-social{display:none}}
+@media(max-width:960px){.nav-links{display:none}.nav-social{display:none}.nav-right{margin-left:auto}}
 
 /* ── buttons ── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:10px;font-size:15px;font-weight:700;font-family:var(--font);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .12s,box-shadow .15s,background .15s,border-color .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 26px;border-radius:100px;font-size:15px;font-weight:600;font-family:var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .12s,box-shadow .2s,background .15s,border-color .15s,color .15s}
 .btn:active{transform:scale(.97)}
-.btn-gold{background:linear-gradient(135deg,var(--gold-2),var(--gold-dark));color:#1a1206;box-shadow:0 4px 18px rgba(217,160,84,.25)}
-.btn-gold:hover{box-shadow:0 6px 24px rgba(217,160,84,.4)}
-.btn-ghost{background:transparent;color:var(--text-1);border-color:var(--line-2)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.btn-sm{padding:8px 16px;font-size:13.5px;border-radius:8px}
+.btn-gold{background:linear-gradient(120deg,var(--gold-2),var(--gold) 55%,#b8813a);color:#221503;box-shadow:0 6px 22px rgba(217,160,84,.3)}
+.btn-gold:hover{box-shadow:0 8px 30px rgba(217,160,84,.5);transform:translateY(-1px)}
+.btn-line{background:rgba(255,255,255,.03);color:var(--text-1);border-color:var(--line-2)}
+.btn-line:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn-sm{padding:9px 18px;font-size:13.5px}
+.arr{font-family:var(--serif)}
 
 /* ── hero ── */
-.hero{padding:84px 0 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-@media(max-width:980px){.hero{grid-template-columns:1fr;gap:40px;padding-top:56px}}
-.kicker{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(217,160,84,.35);background:var(--gold-soft);padding:7px 14px;border-radius:100px;margin-bottom:22px}
-.kicker .dot{width:7px;height:7px;border-radius:50%;background:#ff3b30;animation:blink 1.7s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
-h1{font-size:clamp(40px,5.6vw,66px);font-weight:800;letter-spacing:-.035em;line-height:1.04;margin-bottom:20px}
-h1 .gold{background:linear-gradient(135deg,var(--gold-2),var(--gold-dark));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lede{font-size:17.5px;color:var(--text-2);max-width:54ch;line-height:1.65}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
-.stat{border:1px solid var(--line);background:var(--bg-card);border-radius:12px;padding:12px 18px;min-width:130px}
-.stat b{display:block;font-family:var(--mono);font-size:19px;font-weight:700;color:var(--text-1)}
-.stat span{font-size:12.5px;color:var(--text-3)}
+.hero{position:relative;text-align:center;padding:96px 0 40px;overflow:hidden}
+.hero-glow{position:absolute;inset:0;pointer-events:none}
+.hero-glow::before{content:'';position:absolute;top:-260px;left:50%;transform:translateX(-50%);width:1100px;height:680px;background:radial-gradient(ellipse at center,rgba(91,103,255,.13),transparent 62%)}
+.hero-glow::after{content:'';position:absolute;top:180px;left:50%;transform:translateX(-50%);width:760px;height:420px;background:radial-gradient(ellipse at center,rgba(217,160,84,.09),transparent 65%)}
+.hero .wrap{position:relative}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(42px,6.2vw,80px);line-height:1.04;letter-spacing:-.01em}
+h1 .w1{color:var(--text-1)}
+h1 .w2{background:linear-gradient(115deg,var(--gold-2) 10%,var(--gold) 50%,#c98d3e 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lede{font-size:17.5px;color:var(--text-2);max-width:62ch;margin:26px auto 0;line-height:1.7}
+.hero .lede-2{font-size:15px;color:var(--text-3);max-width:56ch;margin:14px auto 0}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
 
-/* ── hero glow ── */
-.hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
-.hero-bg::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse at center,rgba(91,103,255,.16),transparent 65%)}
-.hero-bg::after{content:'';position:absolute;top:60px;right:-180px;width:600px;height:500px;background:radial-gradient(ellipse at center,rgba(217,160,84,.10),transparent 65%)}
-.hero-zone{position:relative}
+/* ── session widget ── */
+.widget{max-width:880px;margin:56px auto 0;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:0 30px 70px rgba(0,0,0,.5);padding:26px 30px;text-align:left}
+.widget .wh{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.widget .wt{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
+.live-dot{width:9px;height:9px;border-radius:50%;background:var(--red);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.count{display:flex;gap:10px}
+.cu{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px 0;width:76px;text-align:center}
+.cu b{display:block;font-family:var(--mono);font-size:26px;font-weight:600;color:var(--gold-2)}
+.cu span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+.widget .wf{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:20px;padding-top:18px;font-size:13.5px;color:var(--text-3)}
+.widget .wf .mono{color:var(--text-2)}
+@media(max-width:700px){.count{flex-wrap:wrap}.cu{width:64px}}
 
-/* ── ladder ── */
-.ladder{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(180deg,var(--bg-card-2),var(--bg-card));box-shadow:0 30px 70px rgba(0,0,0,.45)}
-.lad-head{background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
-.lad-head b{color:var(--gold);font-weight:700}
+/* ── trust strip ── */
+.strip{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;padding:34px 0 0;font-size:13px;color:var(--text-3)}
+.strip span{display:flex;align-items:center;gap:8px}
+.strip .tick{color:var(--gold);font-weight:700}
+
+/* ── sections ── */
+.sec{padding:96px 0 0}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 48px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.eyebrow.g{color:var(--gold)}
+.eyebrow.b{color:var(--blue)}
+.eyebrow.p{color:var(--purple)}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.01em;line-height:1.12;margin-bottom:16px}
+.sub{font-size:16px;color:var(--text-3);line-height:1.7}
+
+/* ── why cards (colored strips) ── */
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:1080px){.grid5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.grid5{grid-template-columns:1fr}}
+.why{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:22px 20px;position:relative;overflow:hidden;transition:transform .18s,border-color .18s}
+.why:hover{transform:translateY(-4px);border-color:var(--line-2)}
+.why::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--stripc,var(--gold))}
+.why h3{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;line-height:1.35}
+.why p{font-size:13.5px;color:var(--text-3);line-height:1.6}
+
+/* ── curriculum path ── */
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
+@media(max-width:900px){.path{grid-template-columns:1fr}}
+.stage{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:30px 26px;position:relative;overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s}
+.stage:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:0 22px 50px rgba(0,0,0,.45)}
+.stage::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--stripc)}
+.stage .num{font-family:var(--serif);font-size:52px;font-weight:800;line-height:1;color:var(--stripc);opacity:.9}
+.stage .tag{position:absolute;top:26px;right:24px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.05);color:var(--text-2);border:1px solid var(--line)}
+.stage h3{font-family:var(--serif);font-size:24px;font-weight:700;margin:18px 0 10px}
+.stage p{font-size:14.5px;color:var(--text-3);line-height:1.65}
+
+/* ── ladder / sessions ── */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media(max-width:980px){.split{grid-template-columns:1fr;gap:40px}}
+.split h2,.split .eyebrow{text-align:left}
+.ladder{border:1px solid var(--line-2);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.lad-head{background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);padding:11px 15px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.lad-head b{color:var(--gold);font-weight:600}
 .rows{padding:4px 0}
-.row{display:grid;grid-template-columns:1fr 78px 1fr;align-items:center;padding:3.5px 13px;font-family:var(--mono);font-size:12.5px;position:relative}
-.px{text-align:center;color:var(--text-2);font-weight:600}
-.sz{color:var(--text-3);position:relative;z-index:1;font-weight:500;transition:color .25s}
+.row{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;padding:3.5px 14px;font-family:var(--mono);font-size:12.5px;position:relative}
+.px{text-align:center;color:var(--text-2);font-weight:500}
+.sz{color:var(--text-3);position:relative;z-index:1;transition:color .25s}
 .sz.b{text-align:right}.sz.a{text-align:left}
 .bar{position:absolute;top:2px;bottom:2px;border-radius:2px;transition:width .45s cubic-bezier(.2,.9,.3,1)}
-.bar.b{right:calc(50% + 39px);background:var(--green);opacity:.16}
-.bar.a{left:calc(50% + 39px);background:var(--red);opacity:.16}
-.row.mid{background:var(--accent-soft)}
-.row.mid .px{color:#9aa3ff;font-weight:700}
+.bar.b{right:calc(50% + 40px);background:var(--green);opacity:.16}
+.bar.a{left:calc(50% + 40px);background:var(--red);opacity:.16}
+.row.mid{background:rgba(96,165,250,.1)}
+.row.mid .px{color:var(--blue);font-weight:600}
 .row.hit .sz.b{color:var(--green)}
 .row.hit .sz.a{color:var(--red)}
 .row.abs .bar.a{opacity:.42}
-.row.abs .sz.a{color:var(--red);font-weight:700}
-.lad-foot{border-top:1px solid var(--line);background:rgba(255,255,255,.03);padding:9px 14px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;color:var(--text-3)}
-.lad-foot b{font-weight:600}
-.flag{margin-top:10px;display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);opacity:0;transition:opacity .4s;justify-content:center}
+.row.abs .sz.a{color:var(--red);font-weight:600}
+.lad-foot{border-top:1px solid var(--line);background:rgba(255,255,255,.03);padding:10px 15px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;color:var(--text-3)}
+.flag{margin-top:11px;display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);opacity:0;transition:opacity .4s;justify-content:center}
 .flag.on{opacity:1;color:var(--gold)}
-
-/* ── marquee ── */
-.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);overflow:hidden;padding:13px 0;margin-top:56px}
-.marq-in{display:flex;gap:44px;white-space:nowrap;animation:marq 36s linear infinite;width:max-content}
-@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.marq span{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
-.marq span b{color:var(--gold);font-weight:600}
-@media(prefers-reduced-motion:reduce){.marq-in{animation:none}}
-
-/* ── sections ── */
-.sec{padding:88px 0}
-.sec-head{max-width:640px;margin-bottom:44px}
-.eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-h2{font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
-.sub{font-size:16px;color:var(--text-3);line-height:1.65}
-
-/* ── cards ── */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:900px){.grid3{grid-template-columns:1fr}}
-.card{border:1px solid var(--line);background:var(--bg-card);border-radius:16px;padding:28px 26px;transition:transform .18s,border-color .18s,box-shadow .18s;position:relative}
-.card:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:0 18px 40px rgba(0,0,0,.4)}
-.card .lvl{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
-.card h3{font-size:19px;font-weight:700;letter-spacing:-.015em;margin-bottom:9px}
-.card p{font-size:14.5px;color:var(--text-3);line-height:1.6}
-.pill{display:inline-block;padding:4px 11px;border-radius:100px;font-size:10.5px;font-weight:700;letter-spacing:.05em;font-family:var(--mono);text-transform:uppercase}
-.p-green{background:rgba(74,222,128,.13);color:var(--green)}
-.p-amber{background:rgba(251,191,36,.13);color:#fbbf24}
-.p-blue{background:var(--accent-soft);color:#9aa3ff}
-.p-neu{background:rgba(255,255,255,.06);color:var(--text-2)}
-
-/* ── sessions ── */
-.split{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-@media(max-width:980px){.split{grid-template-columns:1fr;gap:36px}}
-.sched{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg-card)}
-.sr{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.04);font-size:14.5px}
+.sched{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sr{display:flex;justify-content:space-between;padding:13px 18px;border-bottom:1px solid var(--line);font-size:14px}
 .sr:last-child{border-bottom:0}
 .sr .d{color:var(--text-2);font-weight:500}
-.sr .t{font-family:var(--mono);font-size:13px;color:var(--text-3)}
-.sr.hi{background:var(--gold-soft)}
-.sr.hi .d{color:var(--gold);font-weight:700}
-.sr.hi .t{color:var(--gold)}
+.sr .t{font-family:var(--mono);font-size:12.5px;color:var(--text-3)}
+.sr.hi{background:rgba(217,160,84,.08)}
+.sr.hi .d,.sr.hi .t{color:var(--gold-2);font-weight:600}
 
 /* ── pricing ── */
-.tier .price{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1;margin:4px 0 2px}
-.tier .price sup{font-size:18px;font-weight:600;color:var(--text-3);top:-16px;position:relative}
-.tier .dur{font-family:var(--mono);font-size:12px;color:var(--text-3);margin-bottom:20px}
-.tier ul{list-style:none;margin-bottom:24px}
-.tier li{font-size:14px;color:var(--text-2);padding:6px 0 6px 20px;position:relative;line-height:1.5}
-.tier li::before{content:'';position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.6}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+@media(max-width:900px){.tiers{grid-template-columns:1fr}}
+.tier{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:32px 28px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s}
+.tier:hover{transform:translateY(-5px);box-shadow:0 24px 55px rgba(0,0,0,.5);border-color:var(--line-2)}
+.tier::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--stripc,var(--gold))}
+.tier .nm{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px}
+.tier .amt{font-family:var(--serif);font-size:54px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.tier .amt sup{font-size:22px;font-weight:600;color:var(--text-3);vertical-align:24px}
+.tier .dur{font-family:var(--mono);font-size:12px;color:var(--text-3);margin:8px 0 22px}
+.tier ul{list-style:none;flex:1;margin-bottom:26px}
+.tier li{font-size:14px;color:var(--text-2);padding:7px 0 7px 24px;position:relative;line-height:1.5}
+.tier li::before{content:'✓';position:absolute;left:0;color:var(--stripc,var(--gold));font-weight:700}
 .tier .btn{width:100%}
 
-/* ── indicators / waitlist ── */
-.tool-name{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--text-1)}
-.wait-band{margin-top:44px;border:1px solid rgba(217,160,84,.3);background:linear-gradient(135deg,rgba(217,160,84,.08),rgba(91,103,255,.06));border-radius:16px;padding:34px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.wait-band h3{font-size:20px;font-weight:800;letter-spacing:-.02em}
-.wait-band p{font-size:14px;color:var(--text-3);margin-top:4px}
-.wait{display:flex;gap:10px;flex-wrap:wrap;min-width:320px}
-.wait input{flex:1;min-width:200px;background:var(--bg);border:1px solid var(--line-2);border-radius:10px;padding:12px 15px;font-size:14.5px;font-family:var(--font);color:var(--text-1);transition:border-color .16s,box-shadow .16s}
+/* ── indicators ── */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.tools{grid-template-columns:1fr}}
+.tool{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:22px;display:flex;flex-direction:column;gap:8px;transition:border-color .18s,transform .18s}
+.tool:hover{border-color:var(--line-2);transform:translateY(-3px)}
+.tool .th{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tool .tn{font-family:var(--mono);font-size:14.5px;font-weight:600;color:var(--gold-2)}
+.tool p{font-size:13.5px;color:var(--text-3)}
+.pill{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;background:rgba(255,255,255,.06);color:var(--text-2)}
+.wait-band{margin-top:40px;border:1px solid rgba(217,160,84,.35);background:linear-gradient(120deg,rgba(217,160,84,.1),rgba(91,103,255,.07));border-radius:20px;padding:36px 34px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.wait-band h3{font-family:var(--serif);font-size:24px;font-weight:700}
+.wait-band p{font-size:14px;color:var(--text-3);margin-top:5px}
+.wait{display:flex;gap:10px;flex-wrap:wrap;min-width:330px}
+.wait input{flex:1;min-width:210px;background:var(--bg);border:1px solid var(--line-2);border-radius:100px;padding:13px 20px;font-size:14.5px;font-family:var(--sans);color:var(--text-1);transition:border-color .16s,box-shadow .16s}
 .wait input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,160,84,.15)}
 .wait input::placeholder{color:var(--text-3)}
 
-/* ── cta band ── */
-.cta-band{border:1px solid var(--line);border-radius:20px;background:radial-gradient(ellipse at 30% 0%,rgba(91,103,255,.14),transparent 60%),var(--bg-card);padding:60px 40px;text-align:center}
-.cta-band h2{margin-bottom:10px}
-.cta-band .sub{max-width:52ch;margin:0 auto 28px}
+/* ── final cta ── */
+.cta-final{margin:96px 0 0;padding:80px 0;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 0%,rgba(217,160,84,.1),transparent 60%);text-align:center}
 
 /* ── footer ── */
-footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
-.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:36px}
-@media(max-width:800px){.f-grid{grid-template-columns:1fr}}
-.f-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;margin-bottom:12px}
-.f-brand img{width:30px;height:30px;border-radius:7px}
-.f-tag{font-size:14px;color:var(--text-3);max-width:36ch}
-.f-col h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;font-family:var(--mono)}
-.f-col a{display:block;color:var(--text-2);font-size:14px;text-decoration:none;padding:4px 0;transition:color .15s}
-.f-col a:hover{color:var(--gold)}
-.disc{font-size:12px;color:var(--text-3);line-height:1.65;border-top:1px solid var(--line);padding-top:24px}
+footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;background:var(--bg-2)}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:38px;margin-bottom:40px}
+@media(max-width:860px){.f-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.f-grid{grid-template-columns:1fr}}
+.f-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.f-brand img{width:32px;height:32px;border-radius:8px}
+.f-brand b{font-family:var(--serif);font-size:18px}
+.f-tag{font-size:14px;color:var(--text-3);max-width:34ch;line-height:1.65}
+.f-col h4{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px}
+.f-col a{display:block;color:var(--text-2);font-size:14px;text-decoration:none;padding:5px 0;transition:color .15s}
+.f-col a:hover{color:var(--gold-2)}
+.f-note{font-size:13px;color:var(--text-3);line-height:1.6}
+.disc{font-size:12px;color:var(--text-3);line-height:1.65;border-top:1px solid var(--line);padding-top:26px}
 .disc b{color:var(--text-2)}
-.cftc{margin-top:12px;font-size:10.5px;color:#565a78;line-height:1.6;font-family:var(--mono)}
-.copy{margin-top:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--text-3)}
+.cftc{margin-top:12px;font-size:10.5px;color:#4c5170;line-height:1.6;font-family:var(--mono)}
+.copy{margin-top:24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--text-3)}
+
+/* ── toast ── */
+.toast{position:fixed;left:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:12px;background:var(--card-2);border:1px solid var(--line-2);border-radius:14px;padding:13px 18px;box-shadow:0 18px 45px rgba(0,0,0,.55);font-size:13.5px;color:var(--text-2);max-width:330px;transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.9,.3,1)}
+.toast.show{transform:translateY(0)}
+.toast .ic{width:34px;height:34px;border-radius:9px;flex-shrink:0}
+.toast .x{margin-left:6px;cursor:pointer;color:var(--text-3);background:none;border:none;font-size:15px;line-height:1}
+@media(max-width:560px){.toast{left:14px;right:14px;max-width:none}}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.toast{display:none}}
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><img src="img/logo-192.png" alt="AlphaTech Traders">AlphaTech Traders</a>
+    <a class="brand" href="#top"><img src="img/logo-192.png" alt="AlphaTech Traders"><b>AlphaTech Traders</b></a>
     <div class="nav-links">
+      <a href="#why">Why AlphaTech</a>
       <a href="#curriculum">Curriculum</a>
       <a href="#sessions">Live Sessions</a>
       <a href="#coaching">Coaching</a>
       <a href="#indicators">Indicators</a>
     </div>
     <div class="nav-right">
-      <div class="nav-social">
+      <span class="nav-social">
         <a href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.4a3 3 0 0 0-2.1-2.1C19 4.8 12 4.8 12 4.8s-7 0-8.9.5A3 3 0 0 0 1 7.4 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.6a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.4ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg></a>
         <a href="https://instagram.com/alphatech.traders" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.9.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.4 2.21 8.8 2.2 12 2.2Zm0 1.98c-3.15 0-3.52.01-4.76.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7-.06 1.24-.07 1.6-.07 4.76s.01 3.52.07 4.76c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.06 1.6.07 4.76.07s3.52-.01 4.76-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.06-1.24.07-1.6.07-4.76s-.01-3.52-.07-4.76c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32-1.24-.06-1.6-.07-4.76-.07Zm0 3.37a4.45 4.45 0 1 1 0 8.9 4.45 4.45 0 0 1 0-8.9Zm0 7.34a2.89 2.89 0 1 0 0-5.78 2.89 2.89 0 0 0 0 5.78Zm5.66-7.56a1.04 1.04 0 1 1-2.08 0 1.04 1.04 0 0 1 2.08 0Z"/></svg></a>
         <a href="https://tiktok.com/@alphatech_traders" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.05-2.82h-3.2v12.4a2.44 2.44 0 0 1-2.44 2.32 2.44 2.44 0 0 1 0-4.88c.25 0 .5.04.72.11v-3.3a5.7 5.7 0 0 0-.72-.05 5.64 5.64 0 1 0 5.64 5.64V9.01a7.5 7.5 0 0 0 4.4 1.41V7.2a4.28 4.28 0 0 1-3.35-1.38Z"/></svg></a>
-      </div>
+      </span>
       <a class="btn btn-gold btn-sm" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Watch Live</a>
     </div>
   </div>
 </nav>
 
-<div class="hero-zone" id="top">
-  <div class="hero-bg"></div>
-  <div class="wrap hero">
-    <div>
-      <div class="kicker"><span class="dot"></span>Live NQ Futures · Mon–Fri 9:15 ET</div>
-      <h1>Read the tape.<br><span class="gold">Not the hype.</span></h1>
-      <p class="lede">Live futures trading, unedited. Orderflow, market structure, and the mechanics of how price actually moves — taught from the ground up, whether you've never opened a chart or you're stuck and can't work out why.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Watch a live session</a>
-        <a class="btn btn-ghost" href="#coaching">Book one-on-one</a>
+<header class="hero" id="top">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <h1><span class="w1">Read the tape.</span><br><span class="w2">Not the hype.</span></h1>
+    <p class="lede">Live NQ futures trading, unedited — the setups I take, the ones I pass on, and the ones I get wrong. Orderflow, market structure, and the mechanics of how price actually moves, taught from the ground up.</p>
+    <p class="lede-2">No signals. No alerts. No profit screenshots. If that's what you're after, this isn't your channel — and that's the point.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Watch a live session <span class="arr">→</span></a>
+      <a class="btn btn-line" href="#coaching">Book one-on-one</a>
+    </div>
+
+    <div class="widget">
+      <div class="wh">
+        <div class="wt"><span class="live-dot"></span> Next live session</div>
+        <div class="count">
+          <div class="cu"><b id="cd">--</b><span>days</span></div>
+          <div class="cu"><b id="ch">--</b><span>hrs</span></div>
+          <div class="cu"><b id="cm">--</b><span>min</span></div>
+          <div class="cu"><b id="cs">--</b><span>sec</span></div>
+        </div>
       </div>
-      <div class="stats">
-        <div class="stat"><b>Mon–Fri</b><span>Live at 9:15 ET</span></div>
-        <div class="stat"><b>Unedited</b><span>Wins and losses</span></div>
-        <div class="stat"><b>0</b><span>Signals sold. Ever.</span></div>
+      <div class="wf">
+        <span>Monday – Friday · <span class="mono">09:15 ET</span> · Pre-market read, the open, session recap</span>
+        <a class="btn btn-line btn-sm" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Set a reminder on YouTube</a>
       </div>
     </div>
-    <div>
-      <div class="ladder">
-        <div class="lad-head"><b>NQZ6</b><span>Depth of Market</span></div>
-        <div class="rows" id="rows"></div>
-        <div class="lad-foot"><div>CVD <b id="cvd">+1,284</b></div><div>&Delta; <b id="delta">&minus;318</b></div></div>
-      </div>
-      <div class="flag" id="flag"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0 10 9H0L5 0Z"/></svg>Absorption at offer</div>
+
+    <div class="strip">
+      <span><b class="tick">✓</b> Unedited, wins and losses</span>
+      <span><b class="tick">✓</b> Signals sold: zero</span>
+      <span><b class="tick">✓</b> Taught in order, no skips</span>
+      <span><b class="tick">✓</b> Every session free</span>
     </div>
   </div>
-  <div class="marq">
-    <div class="marq-in" id="marq"></div>
+</header>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why AlphaTech</div>
+      <h2>Your edge is understanding, not a subscription.</h2>
+      <p class="sub">Most trading content sells you the answer. This channel teaches you the question — what is the market actually doing, right now, and how can you see it?</p>
+    </div>
+    <div class="grid5">
+      <div class="why" style="--stripc:var(--teal)"><h3>Live &amp; unedited</h3><p>Real sessions in real time. Losses stay in, because the edited version teaches you nothing.</p></div>
+      <div class="why" style="--stripc:var(--green)"><h3>Orderflow first</h3><p>CVD, delta, absorption — the layer beneath the candles that almost nobody teaches properly.</p></div>
+      <div class="why" style="--stripc:var(--gold)"><h3>No signals, ever</h3><p>Nothing here tells you when to click. You learn to read the market yourself — that's the product.</p></div>
+      <div class="why" style="--stripc:var(--blue)"><h3>Beginner to book</h3><p>A real path from your first candlestick to reading depth of market, in the right order.</p></div>
+      <div class="why" style="--stripc:var(--purple)"><h3>Risk before reward</h3><p>Position sizing and survival first. Most people who trade lose money — we start from that truth.</p></div>
+    </div>
   </div>
-</div>
+</section>
 
 <section class="sec" id="curriculum">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Start where you are</div>
+      <div class="eyebrow g">The Curriculum</div>
       <h2>From your first candle to reading the order book.</h2>
-      <p class="sub">Most trading education skips the part that matters and sells you the part that doesn't. We go in order — and we don't skip the boring bits, because the boring bits are the ones that keep you solvent.</p>
+      <p class="sub">We go in order — and we don't skip the boring bits, because the boring bits are the ones that keep you solvent.</p>
     </div>
-    <div class="grid3">
-      <div class="card">
-        <div class="lvl">01 · Base <span class="pill p-green">Beginner</span></div>
+    <div class="path">
+      <div class="stage" style="--stripc:var(--teal)">
+        <div class="num">01</div><span class="tag">Beginner</span>
         <h3>The chart itself</h3>
         <p>What a candlestick is actually telling you. Why a tick chart behaves differently from a five-minute chart. How a futures contract works, what a tick is worth, and how to size a position so one bad morning doesn't end you.</p>
       </div>
-      <div class="card">
-        <div class="lvl">02 · Structure <span class="pill p-amber">Intermediate</span></div>
+      <div class="stage" style="--stripc:var(--gold)">
+        <div class="num">02</div><span class="tag">Intermediate</span>
         <h3>Where price turns</h3>
         <p>Market structure, support and resistance that actually holds, Fair Value Gaps, and PO3. How to tell a real level from a line you drew because you wanted it to be there.</p>
       </div>
-      <div class="card">
-        <div class="lvl">03 · Flow <span class="pill p-blue">Advanced</span></div>
+      <div class="stage" style="--stripc:var(--purple)">
+        <div class="num">03</div><span class="tag">Advanced</span>
         <h3>Behind the candle</h3>
-        <p>CVD, delta, absorption, liquidity sweeps. The order book is where intent shows up before the chart does — this is the part almost nobody teaches, and it's the part that changes how you see the day.</p>
+        <p>CVD, delta, absorption, liquidity sweeps. The order book is where intent shows up before the chart does — this is the part that changes how you see the day.</p>
       </div>
     </div>
   </div>
@@ -272,18 +328,26 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
 <section class="sec" id="sessions">
   <div class="wrap split">
     <div>
-      <div class="eyebrow">Free · Every session</div>
+      <div class="eyebrow b">Free · Every Trading Day</div>
       <h2>I trade live. You watch the whole thing.</h2>
-      <p class="sub">Real time, unedited, wins and losses. I call out what I'm seeing on the tape as I see it — the setups I take, the ones I pass on, and the ones I get wrong. No editing, because the edited version teaches you nothing.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube</a>
+      <p class="sub">Real time, unedited, wins and losses. I call out what I'm seeing on the tape as I see it — the setups I take, the ones I pass on, and the ones I get wrong.</p>
+      <div class="sched">
+        <div class="sr hi"><span class="d">Monday — Friday</span><span class="t">09:15 ET</span></div>
+        <div class="sr"><span class="d">Pre-market read</span><span class="t">09:15 – 09:30</span></div>
+        <div class="sr"><span class="d">The open</span><span class="t">09:30 – 11:00</span></div>
+        <div class="sr"><span class="d">Session recap</span><span class="t">Before close</span></div>
+      </div>
+      <div class="hero-ctas" style="justify-content:flex-start">
+        <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">→</span></a>
       </div>
     </div>
-    <div class="sched">
-      <div class="sr hi"><span class="d">Monday — Friday</span><span class="t">09:15 ET</span></div>
-      <div class="sr"><span class="d">Pre-market read</span><span class="t">09:15 – 09:30</span></div>
-      <div class="sr"><span class="d">The open</span><span class="t">09:30 – 11:00</span></div>
-      <div class="sr"><span class="d">Session recap</span><span class="t">Before close</span></div>
+    <div>
+      <div class="ladder">
+        <div class="lad-head"><b>NQZ6</b><span>Depth of Market</span></div>
+        <div class="rows" id="rows"></div>
+        <div class="lad-foot"><div>CVD <b id="cvd">+1,284</b></div><div>&Delta; <b id="delta">&minus;318</b></div></div>
+      </div>
+      <div class="flag" id="flag"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0 10 9H0L5 0Z"/></svg>Absorption at offer — what the candle doesn't show you</div>
     </div>
   </div>
 </section>
@@ -291,15 +355,15 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
 <section class="sec" id="coaching">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">One-on-one</div>
+      <div class="eyebrow g">One-on-One Coaching</div>
       <h2>Sit down with me and your charts.</h2>
       <p class="sub">Live screen share. Your questions, answered as they come up. Every session is recorded and sent to you afterward, so you're not scribbling notes instead of listening.</p>
     </div>
-    <div class="grid3">
-      <div class="card tier">
-        <div class="lvl">Foundations</div>
-        <div class="price"><sup>$</sup>60</div>
-        <div class="dur">60 minutes</div>
+    <div class="tiers">
+      <div class="tier" style="--stripc:var(--teal)">
+        <div class="nm">Foundations</div>
+        <div class="amt"><sup>$</sup>60</div>
+        <div class="dur">60 MINUTES</div>
         <ul>
           <li>Candlesticks, chart types, timeframes</li>
           <li>How futures contracts actually work</li>
@@ -307,12 +371,12 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
           <li>Position sizing that keeps you alive</li>
           <li>Session recording</li>
         </ul>
-        <a class="btn btn-ghost" href="mailto:tradersalphatech@gmail.com?subject=Foundations%20session">Book a session</a>
+        <a class="btn btn-line" href="mailto:tradersalphatech@gmail.com?subject=Foundations%20session">Book Foundations</a>
       </div>
-      <div class="card tier">
-        <div class="lvl">Structure</div>
-        <div class="price"><sup>$</sup>120</div>
-        <div class="dur">90 minutes</div>
+      <div class="tier" style="--stripc:var(--gold)">
+        <div class="nm">Structure</div>
+        <div class="amt"><sup>$</sup>120</div>
+        <div class="dur">90 MINUTES</div>
         <ul>
           <li>Everything in Foundations</li>
           <li>Market structure and key levels</li>
@@ -320,12 +384,12 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
           <li>Building a setup you can repeat</li>
           <li>Recording + written summary</li>
         </ul>
-        <a class="btn btn-ghost" href="mailto:tradersalphatech@gmail.com?subject=Structure%20session">Book a session</a>
+        <a class="btn btn-line" href="mailto:tradersalphatech@gmail.com?subject=Structure%20session">Book Structure</a>
       </div>
-      <div class="card tier">
-        <div class="lvl">Orderflow</div>
-        <div class="price"><sup>$</sup>250</div>
-        <div class="dur">2 × 90 minutes</div>
+      <div class="tier" style="--stripc:var(--purple)">
+        <div class="nm">Orderflow</div>
+        <div class="amt"><sup>$</sup>250</div>
+        <div class="dur">2 × 90 MINUTES</div>
         <ul>
           <li>Everything above, across two sessions</li>
           <li>CVD, delta, absorption, sweeps</li>
@@ -333,31 +397,31 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
           <li>My actual chart configuration</li>
           <li>Recordings + 7 days of follow-up</li>
         </ul>
-        <a class="btn btn-ghost" href="mailto:tradersalphatech@gmail.com?subject=Orderflow%20sessions">Book a session</a>
+        <a class="btn btn-line" href="mailto:tradersalphatech@gmail.com?subject=Orderflow%20sessions">Book Orderflow</a>
       </div>
     </div>
-    <p class="sub" style="margin-top:24px;font-size:12.5px">What this isn't: signals, alerts, account management, or a promise you'll make money. Most people who trade lose money. I teach the mechanics — what you do with them is yours.</p>
+    <p class="sub" style="margin-top:26px;font-size:12.5px;text-align:center">What this isn't: signals, alerts, account management, or a promise you'll make money. Most people who trade lose money. I teach the mechanics — what you do with them is yours.</p>
   </div>
 </section>
 
 <section class="sec" id="indicators">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Built, traded, and used daily</div>
-      <h2>The indicators I actually trade with.</h2>
-      <p class="sub">I built these for my own charts because nothing off the shelf did what I needed. They're being packaged for release now — licensing and install first, so they work properly on day one.</p>
+      <div class="eyebrow p">NinjaTrader 8 Indicators</div>
+      <h2>The tools I actually trade with.</h2>
+      <p class="sub">Built for my own charts because nothing off the shelf did what I needed. Being packaged for release now — licensing and install first, so they work properly on day one.</p>
     </div>
-    <div class="grid3">
-      <div class="card"><div class="lvl"><span class="tool-name">PO3SignalEngine</span><span class="pill p-neu">Soon</span></div><p>Power of Three with 1-minute FVG retest entries</p></div>
-      <div class="card"><div class="lvl"><span class="tool-name">DailyRangeBoxes</span><span class="pill p-neu">Soon</span></div><p>Session ranges, drawn on your chart</p></div>
-      <div class="card"><div class="lvl"><span class="tool-name">ATMRiskLines</span><span class="pill p-neu">Soon</span></div><p>Live risk visualised — entry, stop, target, real dollars</p></div>
-      <div class="card"><div class="lvl"><span class="tool-name">BoxBreak</span><span class="pill p-neu">Soon</span></div><p>Range breaks, flagged as they happen</p></div>
-      <div class="card"><div class="lvl"><span class="tool-name">AMDFVGTrade</span><span class="pill p-neu">Soon</span></div><p>ATR-scaled accumulation–manipulation–distribution setups</p></div>
+    <div class="tools">
+      <div class="tool"><div class="th"><span class="tn">PO3SignalEngine</span><span class="pill">Soon</span></div><p>Power of Three with 1-minute FVG retest entries, session and HTF bias filters.</p></div>
+      <div class="tool"><div class="th"><span class="tn">AMDFVGTrade</span><span class="pill">Soon</span></div><p>ATR-scaled accumulation–manipulation–distribution setups across four sessions.</p></div>
+      <div class="tool"><div class="th"><span class="tn">ATMRiskLines</span><span class="pill">Soon</span></div><p>Reads your live ATM strategy and draws entry, stop, and target with real dollar risk.</p></div>
+      <div class="tool"><div class="th"><span class="tn">BoxBreak</span><span class="pill">Soon</span></div><p>Zone break signals with a built-in time stop.</p></div>
+      <div class="tool"><div class="th"><span class="tn">DailyRangeBoxes</span><span class="pill">Soon</span></div><p>Your daily range levels, drawn as clean zones on the chart.</p></div>
     </div>
     <div class="wait-band">
       <div>
         <h3>Get first access when they ship.</h3>
-        <p>One email when the indicators go live. Nothing else.</p>
+        <p>One email when the indicators go live. Nothing else, ever.</p>
       </div>
       <div class="wait">
         <input type="email" placeholder="your@email.com" aria-label="Email for early access">
@@ -367,37 +431,39 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
   </div>
 </section>
 
-<section class="sec">
+<div class="cta-final">
   <div class="wrap">
-    <div class="cta-band">
-      <div class="eyebrow">Next session · Monday 9:15 ET</div>
-      <h2>Watch the tape with me, live.</h2>
-      <p class="sub">Free, every trading day. Bring your questions to the chat — I answer them between setups.</p>
-      <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube</a>
-    </div>
+    <div class="eyebrow g">Next Session · Monday 9:15 ET</div>
+    <h2>Watch the tape with me, live.</h2>
+    <p class="sub" style="max-width:52ch;margin:0 auto 30px">Free, every trading day. Bring your questions to the chat — I answer them between setups.</p>
+    <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">→</span></a>
   </div>
-</section>
+</div>
 
 <footer>
   <div class="wrap">
     <div class="f-grid">
       <div>
-        <div class="f-brand"><img src="img/logo-192.png" alt="">AlphaTech Traders</div>
+        <div class="f-brand"><img src="img/logo-192.png" alt=""><b>AlphaTech Traders</b></div>
         <p class="f-tag">Live NQ futures, taught properly. Orderflow, market structure, and zero hype.</p>
       </div>
       <div class="f-col">
-        <h4>Explore</h4>
+        <h4>Learn</h4>
+        <a href="#why">Why AlphaTech</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#sessions">Live Sessions</a>
-        <a href="#coaching">Coaching</a>
-        <a href="#indicators">Indicators</a>
       </div>
       <div class="f-col">
-        <h4>Connect</h4>
+        <h4>Work With Me</h4>
+        <a href="#coaching">Coaching</a>
+        <a href="#indicators">Indicators</a>
+        <a href="mailto:tradersalphatech@gmail.com">Email</a>
+      </div>
+      <div class="f-col">
+        <h4>Follow Along</h4>
         <a href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">YouTube</a>
         <a href="https://instagram.com/alphatech.traders" target="_blank" rel="noopener">Instagram</a>
         <a href="https://tiktok.com/@alphatech_traders" target="_blank" rel="noopener">TikTok</a>
-        <a href="mailto:tradersalphatech@gmail.com">Email</a>
       </div>
     </div>
     <div class="disc">
@@ -411,22 +477,51 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
   </div>
 </footer>
 
-<script>
-/* marquee */
-var TERMS = ['Orderflow','Market Structure','CVD','Delta','Absorption','Liquidity Sweeps','Fair Value Gaps','PO3','Depth of Market','Position Sizing','Risk First','No Signals','No Hype'];
-var half = TERMS.map(function(t){return '<span><b>&#9670;</b> '+t+'</span>';}).join('');
-document.getElementById('marq').innerHTML = half + half;
+<div class="toast" id="toast">
+  <img class="ic" src="img/logo-192.png" alt="">
+  <span id="toast-txt">Next live session Monday, 9:15 ET — bring your questions.</span>
+  <button class="x" onclick="document.getElementById('toast').classList.remove('show')" aria-label="Dismiss">✕</button>
+</div>
 
-/* ladder */
+<script>
+/* ── countdown to next weekday 09:15 ET ── */
+function nextSession(){
+  var now = new Date();
+  // ET = UTC-4 (EDT) assumed; compute target in ET then convert
+  for (var add = 0; add < 8; add++){
+    var d = new Date(now.getTime() + add*86400000);
+    // build a Date at 09:15 ET on that calendar day (ET offset -4h => 13:15 UTC)
+    var t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 13, 15, 0));
+    var dow = t.getUTCDay(); // 0 Sun .. 6 Sat
+    if (dow >= 1 && dow <= 5 && t.getTime() > now.getTime()) return t;
+  }
+  return new Date(now.getTime() + 86400000);
+}
+var target = nextSession();
+function pad(n){ return (n<10?'0':'') + n; }
+function tickCount(){
+  var diff = Math.max(0, target.getTime() - Date.now());
+  var s = Math.floor(diff/1000);
+  var days = Math.floor(s/86400); s -= days*86400;
+  var hrs = Math.floor(s/3600); s -= hrs*3600;
+  var min = Math.floor(s/60); s -= min*60;
+  document.getElementById('cd').textContent = pad(days);
+  document.getElementById('ch').textContent = pad(hrs);
+  document.getElementById('cm').textContent = pad(min);
+  document.getElementById('cs').textContent = pad(s);
+  if (diff <= 0) target = nextSession();
+}
+tickCount();
+setInterval(tickCount, 1000);
+
+/* ── DOM ladder ── */
 var BASE = 20847.25, N = 11;
 var rowsEl = document.getElementById('rows');
 var flagEl = document.getElementById('flag');
 var cvdEl = document.getElementById('cvd');
 var delEl = document.getElementById('delta');
 var S = [];
-for (var i = 0; i < N; i++) {
-  S.push({ px: BASE + (Math.floor(N/2) - i) * .25, b: 20 + Math.floor(Math.random()*170), a: 20 + Math.floor(Math.random()*170) });
-}
+for (var i = 0; i < N; i++){ S.push({ px: BASE + (Math.floor(N/2) - i) * .25, b: 20 + Math.floor(Math.random()*170), a: 20 + Math.floor(Math.random()*170) }); }
 rowsEl.innerHTML = S.map(function(s, i){
   return '<div class="row' + (i === Math.floor(N/2) ? ' mid' : '') + '">' +
     '<div style="position:relative"><div class="bar b" style="width:0"></div><div class="sz b">' + s.b + '</div></div>' +
@@ -436,8 +531,7 @@ rowsEl.innerHTML = S.map(function(s, i){
 var R = Array.prototype.slice.call(rowsEl.querySelectorAll('.row'));
 var MAXW = 96, cvd = 1284, tick = 0, busy = false;
 function paint(){
-  var mx = 0;
-  S.forEach(function(s){ mx = Math.max(mx, s.b, s.a); });
+  var mx = 0; S.forEach(function(s){ mx = Math.max(mx, s.b, s.a); });
   S.forEach(function(s, i){
     R[i].querySelector('.sz.b').textContent = s.b;
     R[i].querySelector('.sz.a').textContent = s.a;
@@ -462,54 +556,59 @@ function step(){
   cvdEl.style.color = cvd>=0 ? 'var(--green)' : 'var(--red)';
   delEl.style.color = d>=0 ? 'var(--green)' : 'var(--red)';
   if (tick % 14 === 0 && !busy){
-    busy = true;
-    var r = 3;
-    S[r].a = 880;
-    R[r].classList.add('abs');
-    flagEl.classList.add('on');
-    setTimeout(function(){
-      R[r].classList.remove('abs');
-      flagEl.classList.remove('on');
-      S[r].a = 55 + Math.floor(Math.random()*85);
-      busy = false;
-    }, 2500);
+    busy = true; var r = 3; S[r].a = 880;
+    R[r].classList.add('abs'); flagEl.classList.add('on');
+    setTimeout(function(){ R[r].classList.remove('abs'); flagEl.classList.remove('on'); S[r].a = 55 + Math.floor(Math.random()*85); busy = false; }, 2500);
   }
   paint();
 }
 paint();
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(step, 640);
 
-/* nav scrollspy */
+/* ── nav scrollspy ── */
 var navA = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
 var secs = navA.map(function(a){ return document.querySelector(a.getAttribute('href')); });
 function spy(){
-  var y = window.scrollY + 100;
-  var cur = -1;
+  var y = window.scrollY + 120, cur = -1;
   secs.forEach(function(s, i){ if (s && s.offsetTop <= y) cur = i; });
   navA.forEach(function(a, i){ a.classList.toggle('on', i === cur); });
 }
 window.addEventListener('scroll', spy, {passive:true});
 spy();
 
-/* waitlist -> Supabase */
+/* ── social-proof toast ── */
+var toastMsgs = [
+  'Next live session Monday, 9:15 ET — bring your questions.',
+  '“Finally someone who shows the losers too.” — YouTube comment',
+  'New: NinjaTrader 8 indicators shipping soon. Join the waitlist.',
+  'Every session is free. No signals, no upsell.'
+];
+var tIdx = 0, toastEl = document.getElementById('toast'), toastTxt = document.getElementById('toast-txt');
+function cycleToast(){
+  toastTxt.textContent = toastMsgs[tIdx % toastMsgs.length];
+  toastEl.classList.add('show');
+  setTimeout(function(){ toastEl.classList.remove('show'); }, 6000);
+  tIdx++;
+  setTimeout(cycleToast, 15000);
+}
+setTimeout(cycleToast, 3500);
+
+/* ── waitlist -> Supabase ── */
 var SUPABASE_URL = 'https://ekignosslynvkjlmpjsl.supabase.co';
 var SUPABASE_KEY = 'sb_publishable_YB2AsmQ1D11LFdMOQZ9VQA_USmlGhpZ';
 async function joinList(btn){
   var i = btn.previousElementSibling;
   var email = i.value.trim();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { i.focus(); return; }
-  btn.disabled = true;
-  btn.textContent = 'Adding…';
+  btn.disabled = true; btn.textContent = 'Adding…';
   try {
     var r = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
       method: 'POST',
       headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
       body: JSON.stringify({ email: email, source: 'indicators' })
     });
-    if (r.ok || r.status === 409) {
-      btn.textContent = "You're on the list";
-      i.value = ''; i.disabled = true;
-    } else { btn.textContent = 'Try again'; btn.disabled = false; }
+    if (r.ok || r.status === 409) { btn.textContent = "You're on the list ✓"; i.value = ''; i.disabled = true; }
+    else { btn.textContent = 'Try again'; btn.disabled = false; }
   } catch (e) { btn.textContent = 'Try again'; btn.disabled = false; }
 }
 </script>
