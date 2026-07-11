@@ -588,9 +588,7 @@ function syncActive(){
     if (p.getBoundingClientRect().top - 1 <= line) current = p.id;
   }
   const c = contentEl;
-  const cBottom = c && (c.scrollHeight - c.scrollTop - c.clientHeight < 4);
-  const wBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4);
-  if (cBottom || wBottom) current = panes[panes.length - 1].id;
+  if (c && (c.scrollHeight - c.scrollTop - c.clientHeight < 4)) current = panes[panes.length - 1].id;
   setActive(current);
 }
 if (contentEl) contentEl.addEventListener('scroll', syncActive, {passive:true});
