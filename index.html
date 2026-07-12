@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AlphaTech Traders â€” Live NQ Futures. No Signals. No Hype.</title>
+<title>AlphaTech Traders — Live NQ Futures. No Signals. No Hype.</title>
 <meta name="description" content="Live NQ futures trading. Orderflow, market structure, and the mechanics of how price actually moves. No signals. No hype.">
 <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
 <link rel="apple-touch-icon" href="img/logo-192.png">
@@ -38,7 +38,7 @@ body{background:var(--bg);color:var(--text-1);font-family:var(--sans);line-heigh
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 section{scroll-margin-top:90px}
 
-/* â”€â”€ nav â”€â”€ */
+/* ── nav ── */
 .topbar{position:sticky;top:0;z-index:80}
 .ticker{background:#080b20;border-bottom:1px solid var(--line);height:44px;overflow:hidden;display:flex;align-items:center;position:relative}
 .ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:56px;z-index:2;pointer-events:none}
@@ -69,7 +69,7 @@ section{scroll-margin-top:90px}
 .nav-social svg{width:16px;height:16px}
 @media(max-width:960px){.nav-links{display:none}.nav-social{display:none}.nav-right{margin-left:auto}}
 
-/* â”€â”€ buttons â”€â”€ */
+/* ── buttons ── */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 26px;border-radius:100px;font-size:15px;font-weight:600;font-family:var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .12s,box-shadow .2s,background .15s,border-color .15s,color .15s}
 .btn:active{transform:scale(.97)}
 .btn-gold{background:linear-gradient(120deg,var(--gold-2),var(--gold) 55%,#b8813a);color:#221503;box-shadow:0 6px 22px rgba(217,160,84,.3)}
@@ -79,7 +79,7 @@ section{scroll-margin-top:90px}
 .btn-sm{padding:9px 18px;font-size:13.5px}
 .arr{font-family:var(--serif)}
 
-/* â”€â”€ hero â”€â”€ */
+/* ── hero ── */
 .hero{position:relative;padding:96px 0 40px;overflow:hidden}
 .hero-split{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center;text-align:left}
 @media(max-width:980px){.hero-split{grid-template-columns:1fr;gap:38px;text-align:center}}
@@ -98,7 +98,7 @@ h1 .w2{background:linear-gradient(115deg,var(--gold-2) 10%,var(--gold) 50%,#c98d
   .hero-ctas{justify-content:center}
 }
 
-/* â”€â”€ DOM ladder â”€â”€ */
+/* ── DOM ladder ── */
 .ladder{border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:0 24px 60px rgba(0,0,0,.5)}
 .lad-head{background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);padding:10px 13px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3)}
 .lad-head b{color:var(--gold-2);font-weight:700;letter-spacing:.03em}
@@ -122,8 +122,9 @@ h1 .w2{background:linear-gradient(115deg,var(--gold-2) 10%,var(--gold) 50%,#c98d
 .flag.on{opacity:1;color:var(--gold)}
 .cap{margin-top:12px;font-size:11.5px;color:var(--text-3);text-align:center;font-family:var(--mono)}
 
-/* â”€â”€ status notice â”€â”€ */
+/* ── status notice ── */
 .notice{max-width:880px;margin:44px auto 0;display:flex;gap:13px;align-items:flex-start;text-align:left;padding:15px 18px;border-radius:14px;border:1px solid rgba(217,160,84,.34);background:linear-gradient(180deg,rgba(217,160,84,.11),rgba(217,160,84,.05))}
+.notice[hidden]{display:none}
 .notice-ic{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(217,160,84,.18);color:var(--gold-2)}
 .notice-tx{display:flex;flex-direction:column;gap:3px;min-width:0}
 .notice-tx b{font-size:14.5px;color:var(--gold-2);font-weight:700}
@@ -132,7 +133,7 @@ h1 .w2{background:linear-gradient(115deg,var(--gold-2) 10%,var(--gold) 50%,#c98d
 .widget.is-live .wt{color:var(--red)}
 .count.hide{display:none}
 
-/* â”€â”€ session widget â”€â”€ */
+/* ── session widget ── */
 .widget{max-width:880px;margin:56px auto 0;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:0 30px 70px rgba(0,0,0,.5);padding:26px 30px;text-align:left}
 .widget .wh{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
 .widget .wt{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
@@ -146,12 +147,12 @@ h1 .w2{background:linear-gradient(115deg,var(--gold-2) 10%,var(--gold) 50%,#c98d
 .widget .wf .mono{color:var(--text-2)}
 @media(max-width:700px){.count{flex-wrap:wrap}.cu{width:64px}}
 
-/* â”€â”€ trust strip â”€â”€ */
+/* ── trust strip ── */
 .strip{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;padding:34px 0 0;font-size:13px;color:var(--text-3)}
 .strip span{display:flex;align-items:center;gap:8px}
 .strip .tick{color:var(--gold);font-weight:700}
 
-/* â”€â”€ sections â”€â”€ */
+/* ── sections ── */
 .sec{padding:96px 0 0}
 .sec-head{text-align:center;max-width:680px;margin:0 auto 48px}
 .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
@@ -161,7 +162,7 @@ h1 .w2{background:linear-gradient(115deg,var(--gold-2) 10%,var(--gold) 50%,#c98d
 h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.01em;line-height:1.12;margin-bottom:16px}
 .sub{font-size:16px;color:var(--text-3);line-height:1.7}
 
-/* â”€â”€ why cards (colored strips) â”€â”€ */
+/* ── why cards (colored strips) ── */
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 @media(max-width:1080px){.grid5{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.grid5{grid-template-columns:1fr}}
@@ -171,7 +172,7 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .why h3{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;line-height:1.35}
 .why p{font-size:13.5px;color:var(--text-3);line-height:1.6}
 
-/* â”€â”€ curriculum path â”€â”€ */
+/* ── curriculum path ── */
 .path{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
 @media(max-width:900px){.path{grid-template-columns:1fr}}
 .stage{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:30px 26px;position:relative;overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s}
@@ -182,7 +183,7 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .stage h3{font-family:var(--serif);font-size:24px;font-weight:700;margin:18px 0 10px}
 .stage p{font-size:14.5px;color:var(--text-3);line-height:1.65}
 
-/* â”€â”€ ladder / sessions â”€â”€ */
+/* ── ladder / sessions ── */
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 @media(max-width:980px){.split{grid-template-columns:1fr;gap:40px}}
 .split h2,.split .eyebrow{text-align:left}
@@ -214,7 +215,7 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .sr.hi{background:rgba(217,160,84,.08)}
 .sr.hi .d,.sr.hi .t{color:var(--gold-2);font-weight:600}
 
-/* â”€â”€ pricing â”€â”€ */
+/* ── pricing ── */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
 @media(max-width:900px){.tiers{grid-template-columns:1fr}}
 .tier{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:32px 28px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s}
@@ -226,10 +227,10 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .tier .dur{font-family:var(--mono);font-size:12px;color:var(--text-3);margin:8px 0 22px}
 .tier ul{list-style:none;flex:1;margin-bottom:26px}
 .tier li{font-size:14px;color:var(--text-2);padding:7px 0 7px 24px;position:relative;line-height:1.5}
-.tier li::before{content:'âœ“';position:absolute;left:0;color:var(--stripc,var(--gold));font-weight:700}
+.tier li::before{content:'✓';position:absolute;left:0;color:var(--stripc,var(--gold));font-weight:700}
 .tier .btn{width:100%}
 
-/* â”€â”€ indicators â”€â”€ */
+/* ── indicators ── */
 .tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:900px){.tools{grid-template-columns:1fr}}
 .tool{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:22px;display:flex;flex-direction:column;gap:8px;transition:border-color .18s,transform .18s}
@@ -246,7 +247,7 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .wait input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,160,84,.15)}
 .wait input::placeholder{color:var(--text-3)}
 
-/* â”€â”€ live desk â”€â”€ */
+/* ── live desk ── */
 .desk{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px;margin-top:44px;align-items:stretch}
 @media(max-width:1080px){.desk{grid-template-columns:1fr}.news{height:auto}.news-frame{aspect-ratio:16/9;flex:none}.desk .feed{height:auto;max-height:480px}}
 .news-foot{padding:11px 16px;font-size:12px;color:var(--text-3);display:flex;align-items:center;gap:8px}
@@ -284,10 +285,10 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .post .pl:hover{color:var(--gold-2)}
 .desk-note{font-size:12px;color:var(--text-3);margin-top:16px;text-align:center}
 
-/* â”€â”€ final cta â”€â”€ */
+/* ── final cta ── */
 .cta-final{margin:96px 0 0;padding:80px 0;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 0%,rgba(217,160,84,.1),transparent 60%);text-align:center}
 
-/* â”€â”€ footer â”€â”€ */
+/* ── footer ── */
 footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;background:var(--bg-2)}
 .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:38px;margin-bottom:40px}
 @media(max-width:860px){.f-grid{grid-template-columns:1fr 1fr}}
@@ -305,7 +306,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 .cftc{margin-top:12px;font-size:10.5px;color:#4c5170;line-height:1.6;font-family:var(--mono)}
 .copy{margin-top:24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--text-3)}
 
-/* â”€â”€ toast â”€â”€ */
+/* ── toast ── */
 .toast{position:fixed;left:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:12px;background:var(--card-2);border:1px solid var(--line-2);border-radius:14px;padding:13px 18px;box-shadow:0 18px 45px rgba(0,0,0,.55);font-size:13.5px;color:var(--text-2);max-width:330px;transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.9,.3,1)}
 .toast.show{transform:translateY(0)}
 .toast .ic{width:34px;height:34px;border-radius:9px;flex-shrink:0}
@@ -319,7 +320,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 
 <div class="topbar"><!-- desk: equal-height panels -->
 <div class="ticker" aria-label="Live market prices">
-  <div class="tick-track" id="tickTrack"><span class="tk"><span class="tk-name">Loading live market dataâ€¦</span></span></div>
+  <div class="tick-track" id="tickTrack"><span class="tk"><span class="tk-name">Loading live market data…</span></span></div>
 </div>
 <script>
 (function(){
@@ -371,10 +372,10 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
    <div class="hero-split">
     <div class="hero-copy">
     <h1><span class="w1">Read the tape.</span><br><span class="w2">Not the hype.</span></h1>
-    <p class="lede">Live NQ futures trading, unedited â€” the setups I take, the ones I pass on, and the ones I get wrong. Orderflow, market structure, and the mechanics of how price actually moves, taught from the ground up.</p>
-    <p class="lede-2">No signals. No alerts. No profit screenshots. If that's what you're after, this isn't your channel â€” and that's the point.</p>
+    <p class="lede">Live NQ futures trading, unedited — the setups I take, the ones I pass on, and the ones I get wrong. Orderflow, market structure, and the mechanics of how price actually moves, taught from the ground up.</p>
+    <p class="lede-2">No signals. No alerts. No profit screenshots. If that's what you're after, this isn't your channel — and that's the point.</p>
     <div class="hero-ctas">
-      <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Watch a live session <span class="arr">â†’</span></a>
+      <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Watch a live session <span class="arr">→</span></a>
       <a class="btn btn-line" href="#coaching">Book one-on-one</a>
     </div>
     </div>
@@ -385,7 +386,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
         <div class="rows" id="rows"></div>
         <div class="lad-foot">
           <div>CVD <b id="cvd">+1,284</b></div>
-          <div>Î” <b id="delta">âˆ’318</b></div>
+          <div>Δ <b id="delta">−318</b></div>
         </div>
       </div>
       <div class="flag" id="flag">
@@ -417,16 +418,16 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
         </div>
       </div>
       <div class="wf">
-        <span id="wmeta">Loading scheduleâ€¦</span>
+        <span id="wmeta">Loading schedule…</span>
         <a class="btn btn-line btn-sm" id="wcta" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Set a reminder on YouTube</a>
       </div>
     </div>
 
     <div class="strip">
-      <span><b class="tick">âœ“</b> Unedited, wins and losses</span>
-      <span><b class="tick">âœ“</b> Signals sold: zero</span>
-      <span><b class="tick">âœ“</b> Taught in order, no skips</span>
-      <span><b class="tick">âœ“</b> Every session free</span>
+      <span><b class="tick">✓</b> Unedited, wins and losses</span>
+      <span><b class="tick">✓</b> Signals sold: zero</span>
+      <span><b class="tick">✓</b> Taught in order, no skips</span>
+      <span><b class="tick">✓</b> Every session free</span>
     </div>
   </div>
 </header>
@@ -436,7 +437,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
     <div class="sec-head">
       <div class="eyebrow b">The Live Desk</div>
       <h2>Watch the news. Watch what moves it.</h2>
-      <p class="sub">Live market news, the President's posts the second they land, and breaking headlines â€” the three things that move the NQ, side by side and in real time.</p>
+      <p class="sub">Live market news, the President's posts the second they land, and breaking headlines — the three things that move the NQ, side by side and in real time.</p>
     </div>
     <div class="desk">
       <div class="news">
@@ -450,26 +451,26 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
         <div class="news-frame">
           <iframe id="newsFrame" src="https://www.youtube.com/embed/live_stream?channel=UCEAZeUIeJs0IjQiqTCdVSIg" allow="encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="Live market news"></iframe>
         </div>
-        <div class="news-foot"><span class="d"></span>Live now â€” press play, or switch channel above.</div>
+        <div class="news-foot"><span class="d"></span>Live now — press play, or switch channel above.</div>
       </div>
       <div class="feed">
         <div class="feed-head">
           <img class="ava" id="feedAva" src="https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/accounts/avatars/107/780/257/626/128/497/original/454286ac07a6f6e6.jpeg" alt="">
-          <div class="who">Donald J. Trump<small>@realDonaldTrump Â· Truth Social</small></div>
+          <div class="who">Donald J. Trump<small>@realDonaldTrump · Truth Social</small></div>
           <span class="feed-live"><span class="d"></span>Live</span>
         </div>
-        <div class="feed-body" id="feedBody"><div class="post"><div class="pc">Loading latest postsâ€¦</div></div></div>
+        <div class="feed-body" id="feedBody"><div class="post"><div class="pc">Loading latest posts…</div></div></div>
       </div>
       <div class="feed">
         <div class="feed-head">
           <span class="ava" style="display:flex;align-items:center;justify-content:center;background:rgba(217,160,84,.14)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8bc79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM8 9h8M8 13h8M8 17h5"/></svg></span>
-          <div class="who">Breaking Headlines<small>CNBC Â· Markets &amp; Top News</small></div>
+          <div class="who">Breaking Headlines<small>CNBC · Markets &amp; Top News</small></div>
           <span class="feed-live"><span class="d"></span>Live</span>
         </div>
-        <div class="feed-body" id="hlBody"><div class="post"><div class="pc">Loading headlinesâ€¦</div></div></div>
+        <div class="feed-body" id="hlBody"><div class="post"><div class="pc">Loading headlines…</div></div></div>
       </div>
     </div>
-    <p class="desk-note">Live news via YouTube. Trump posts pulled live from public Truth Social; headlines from CNBC. Shown for market context only â€” not an endorsement or financial advice.</p>
+    <p class="desk-note">Live news via YouTube. Trump posts pulled live from public Truth Social; headlines from CNBC. Shown for market context only — not an endorsement or financial advice.</p>
   </div>
 </section>
 <script>
@@ -519,14 +520,14 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
     <div class="sec-head">
       <div class="eyebrow">Why AlphaTech</div>
       <h2>Your edge is understanding, not a subscription.</h2>
-      <p class="sub">Most trading content sells you the answer. This channel teaches you the question â€” what is the market actually doing, right now, and how can you see it?</p>
+      <p class="sub">Most trading content sells you the answer. This channel teaches you the question — what is the market actually doing, right now, and how can you see it?</p>
     </div>
     <div class="grid5">
       <div class="why" style="--stripc:var(--teal)"><h3>Live &amp; unedited</h3><p>Real sessions in real time. Losses stay in, because the edited version teaches you nothing.</p></div>
-      <div class="why" style="--stripc:var(--green)"><h3>Orderflow first</h3><p>CVD, delta, absorption â€” the layer beneath the candles that almost nobody teaches properly.</p></div>
-      <div class="why" style="--stripc:var(--gold)"><h3>No signals, ever</h3><p>Nothing here tells you when to click. You learn to read the market yourself â€” that's the product.</p></div>
+      <div class="why" style="--stripc:var(--green)"><h3>Orderflow first</h3><p>CVD, delta, absorption — the layer beneath the candles that almost nobody teaches properly.</p></div>
+      <div class="why" style="--stripc:var(--gold)"><h3>No signals, ever</h3><p>Nothing here tells you when to click. You learn to read the market yourself — that's the product.</p></div>
       <div class="why" style="--stripc:var(--blue)"><h3>Beginner to book</h3><p>A real path from your first candlestick to reading depth of market, in the right order.</p></div>
-      <div class="why" style="--stripc:var(--purple)"><h3>Risk before reward</h3><p>Position sizing and survival first. Most people who trade lose money â€” we start from that truth.</p></div>
+      <div class="why" style="--stripc:var(--purple)"><h3>Risk before reward</h3><p>Position sizing and survival first. Most people who trade lose money — we start from that truth.</p></div>
     </div>
   </div>
 </section>
@@ -536,7 +537,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
     <div class="sec-head">
       <div class="eyebrow g">The Curriculum</div>
       <h2>From your first candle to reading the order book.</h2>
-      <p class="sub">We go in order â€” and we don't skip the boring bits, because the boring bits are the ones that keep you solvent.</p>
+      <p class="sub">We go in order — and we don't skip the boring bits, because the boring bits are the ones that keep you solvent.</p>
     </div>
     <div class="path">
       <div class="stage" style="--stripc:var(--teal)">
@@ -552,7 +553,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
       <div class="stage" style="--stripc:var(--purple)">
         <div class="num">03</div><span class="tag">Advanced</span>
         <h3>Behind the candle</h3>
-        <p>CVD, delta, absorption, liquidity sweeps. The order book is where intent shows up before the chart does â€” this is the part that changes how you see the day.</p>
+        <p>CVD, delta, absorption, liquidity sweeps. The order book is where intent shows up before the chart does — this is the part that changes how you see the day.</p>
       </div>
     </div>
   </div>
@@ -561,17 +562,17 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 <section class="sec" id="sessions">
   <div class="wrap split">
     <div>
-      <div class="eyebrow b">Free Â· Every Trading Day</div>
+      <div class="eyebrow b">Free · Every Trading Day</div>
       <h2>I trade live. You watch the whole thing.</h2>
-      <p class="sub">Real time, unedited, wins and losses. I call out what I'm seeing on the tape as I see it â€” the setups I take, the ones I pass on, and the ones I get wrong.</p>
+      <p class="sub">Real time, unedited, wins and losses. I call out what I'm seeing on the tape as I see it — the setups I take, the ones I pass on, and the ones I get wrong.</p>
       <div class="sched">
-        <div class="sr hi"><span class="d">Monday â€” Friday</span><span class="t">09:15 ET</span></div>
-        <div class="sr"><span class="d">Pre-market read</span><span class="t">09:15 â€“ 09:30</span></div>
-        <div class="sr"><span class="d">The open</span><span class="t">09:30 â€“ 11:00</span></div>
+        <div class="sr hi"><span class="d">Monday — Friday</span><span class="t">09:15 ET</span></div>
+        <div class="sr"><span class="d">Pre-market read</span><span class="t">09:15 – 09:30</span></div>
+        <div class="sr"><span class="d">The open</span><span class="t">09:30 – 11:00</span></div>
         <div class="sr"><span class="d">Session recap</span><span class="t">Before close</span></div>
       </div>
       <div class="hero-ctas" style="justify-content:flex-start">
-        <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">â†’</span></a>
+        <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">→</span></a>
       </div>
     </div>
     <div>
@@ -580,7 +581,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
         <div class="rows" id="rows"></div>
         <div class="lad-foot"><div>CVD <b id="cvd">+1,284</b></div><div>&Delta; <b id="delta">&minus;318</b></div></div>
       </div>
-      <div class="flag" id="flag"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0 10 9H0L5 0Z"/></svg>Absorption at offer â€” what the candle doesn't show you</div>
+      <div class="flag" id="flag"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0 10 9H0L5 0Z"/></svg>Absorption at offer — what the candle doesn't show you</div>
     </div>
   </div>
 </section>
@@ -622,7 +623,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
       <div class="tier" style="--stripc:var(--purple)">
         <div class="nm">Orderflow</div>
         <div class="amt"><sup>$</sup>250</div>
-        <div class="dur">2 Ã— 90 MINUTES</div>
+        <div class="dur">2 × 90 MINUTES</div>
         <ul>
           <li>Everything above, across two sessions</li>
           <li>CVD, delta, absorption, sweeps</li>
@@ -633,7 +634,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
         <a class="btn btn-line" href="mailto:tradersalphatech@gmail.com?subject=Orderflow%20sessions">Book Orderflow</a>
       </div>
     </div>
-    <p class="sub" style="margin-top:26px;font-size:12.5px;text-align:center">What this isn't: signals, alerts, account management, or a promise you'll make money. Most people who trade lose money. I teach the mechanics â€” what you do with them is yours.</p>
+    <p class="sub" style="margin-top:26px;font-size:12.5px;text-align:center">What this isn't: signals, alerts, account management, or a promise you'll make money. Most people who trade lose money. I teach the mechanics — what you do with them is yours.</p>
   </div>
 </section>
 
@@ -642,11 +643,11 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
     <div class="sec-head">
       <div class="eyebrow p">NinjaTrader 8 Indicators</div>
       <h2>The tools I actually trade with.</h2>
-      <p class="sub">Built for my own charts because nothing off the shelf did what I needed. Being packaged for release now â€” licensing and install first, so they work properly on day one.</p>
+      <p class="sub">Built for my own charts because nothing off the shelf did what I needed. Being packaged for release now — licensing and install first, so they work properly on day one.</p>
     </div>
     <div class="tools">
       <div class="tool"><div class="th"><span class="tn">PO3SignalEngine</span><span class="pill">Soon</span></div><p>Power of Three with 1-minute FVG retest entries, session and HTF bias filters.</p></div>
-      <div class="tool"><div class="th"><span class="tn">AMDFVGTrade</span><span class="pill">Soon</span></div><p>ATR-scaled accumulationâ€“manipulationâ€“distribution setups across four sessions.</p></div>
+      <div class="tool"><div class="th"><span class="tn">AMDFVGTrade</span><span class="pill">Soon</span></div><p>ATR-scaled accumulation–manipulation–distribution setups across four sessions.</p></div>
       <div class="tool"><div class="th"><span class="tn">ATMRiskLines</span><span class="pill">Soon</span></div><p>Reads your live ATM strategy and draws entry, stop, and target with real dollar risk.</p></div>
       <div class="tool"><div class="th"><span class="tn">BoxBreak</span><span class="pill">Soon</span></div><p>Zone break signals with a built-in time stop.</p></div>
       <div class="tool"><div class="th"><span class="tn">DailyRangeBoxes</span><span class="pill">Soon</span></div><p>Your daily range levels, drawn as clean zones on the chart.</p></div>
@@ -666,10 +667,10 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 
 <div class="cta-final">
   <div class="wrap">
-    <div class="eyebrow g">Next Session Â· Monday 9:15 ET</div>
+    <div class="eyebrow g">Next Session · Monday 9:15 ET</div>
     <h2>Watch the tape with me, live.</h2>
-    <p class="sub" style="max-width:52ch;margin:0 auto 30px">Free, every trading day. Bring your questions to the chat â€” I answer them between setups.</p>
-    <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">â†’</span></a>
+    <p class="sub" style="max-width:52ch;margin:0 auto 30px">Free, every trading day. Bring your questions to the chat — I answer them between setups.</p>
+    <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">→</span></a>
   </div>
 </div>
 
@@ -700,11 +701,11 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
       </div>
     </div>
     <div class="disc">
-      <b>Educational and entertainment purposes only.</b> Nothing on this site is financial, investment, or trading advice. Any trades shown are for discussion and demonstration. Trading involves substantial risk â€” only risk capital should be used, and past performance does not guarantee future results.
-      <div class="cftc">CFTC RULE 4.41 â€” HYPOTHETICAL OR SIMULATED PERFORMANCE RESULTS HAVE CERTAIN LIMITATIONS. UNLIKE AN ACTUAL PERFORMANCE RECORD, SIMULATED RESULTS DO NOT REPRESENT ACTUAL TRADING. ALSO, SINCE THE TRADES HAVE NOT BEEN EXECUTED, THE RESULTS MAY HAVE UNDER-OR-OVER COMPENSATED FOR THE IMPACT, IF ANY, OF CERTAIN MARKET FACTORS, SUCH AS LACK OF LIQUIDITY. SIMULATED TRADING PROGRAMS IN GENERAL ARE ALSO SUBJECT TO THE FACT THAT THEY ARE DESIGNED WITH THE BENEFIT OF HINDSIGHT. NO REPRESENTATION IS BEING MADE THAT ANY ACCOUNT WILL OR IS LIKELY TO ACHIEVE PROFIT OR LOSSES SIMILAR TO THOSE SHOWN.</div>
+      <b>Educational and entertainment purposes only.</b> Nothing on this site is financial, investment, or trading advice. Any trades shown are for discussion and demonstration. Trading involves substantial risk — only risk capital should be used, and past performance does not guarantee future results.
+      <div class="cftc">CFTC RULE 4.41 — HYPOTHETICAL OR SIMULATED PERFORMANCE RESULTS HAVE CERTAIN LIMITATIONS. UNLIKE AN ACTUAL PERFORMANCE RECORD, SIMULATED RESULTS DO NOT REPRESENT ACTUAL TRADING. ALSO, SINCE THE TRADES HAVE NOT BEEN EXECUTED, THE RESULTS MAY HAVE UNDER-OR-OVER COMPENSATED FOR THE IMPACT, IF ANY, OF CERTAIN MARKET FACTORS, SUCH AS LACK OF LIQUIDITY. SIMULATED TRADING PROGRAMS IN GENERAL ARE ALSO SUBJECT TO THE FACT THAT THEY ARE DESIGNED WITH THE BENEFIT OF HINDSIGHT. NO REPRESENTATION IS BEING MADE THAT ANY ACCOUNT WILL OR IS LIKELY TO ACHIEVE PROFIT OR LOSSES SIMILAR TO THOSE SHOWN.</div>
     </div>
     <div class="copy">
-      <span>Â© 2026 AlphaTech Traders LLC</span>
+      <span>© 2026 AlphaTech Traders LLC</span>
       <span class="mono">Built by a trader, not a marketer</span>
     </div>
   </div>
@@ -712,42 +713,37 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 
 <div class="toast" id="toast">
   <img class="ic" src="img/logo-192.png" alt="">
-  <span id="toast-txt">Next live session Monday, 9:15 ET â€” bring your questions.</span>
-  <button class="x" onclick="document.getElementById('toast').classList.remove('show')" aria-label="Dismiss">âœ•</button>
+  <span id="toast-txt">Next live session Monday, 9:15 ET — bring your questions.</span>
+  <button class="x" onclick="document.getElementById('toast').classList.remove('show')" aria-label="Dismiss">✕</button>
 </div>
 
 <script>
-/* â”€â”€ live session: driven by the real YouTube schedule â”€â”€ */
+/* ── live session: driven by the real YouTube schedule ── */
 var SESSION_API = 'https://ekignosslynvkjlmpjsl.supabase.co/functions/v1/next-session';
-
-var target = null;          // Date of next scheduled stream, or null
-var isLive = false;
-var fallbackTried = false;
+var target = null, isLive = false, failed = false;
 
 function pad(n){ return (n<10?'0':'') + n; }
 
 function fmtWhen(d){
-  var day = d.toLocaleDateString([], { weekday:'long' });
+  var day  = d.toLocaleDateString([], { weekday:'long' });
   var time = d.toLocaleTimeString([], { hour:'numeric', minute:'2-digit' });
-  var tz = (d.toLocaleTimeString([], { timeZoneName:'short' }).split(' ').pop()) || '';
-  var today = new Date();
-  var sameDay = d.toDateString() === today.toDateString();
-  var tmr = new Date(today.getTime() + 86400000);
-  if (sameDay) day = 'Today';
+  var tz   = (d.toLocaleTimeString([], { timeZoneName:'short' }).split(' ').pop()) || '';
+  var now  = new Date();
+  var tmr  = new Date(now.getTime() + 86400000);
+  if (d.toDateString() === now.toDateString()) day = 'Today';
   else if (d.toDateString() === tmr.toDateString()) day = 'Tomorrow';
-  return day + ' Â· <span class="mono">' + time + ' ' + tz + '</span>';
+  return day + ' &middot; <span class="mono">' + time + ' ' + tz + '</span>';
 }
 
 function tickCount(){
   var cd = document.getElementById('cd');
-  if (!cd) return;
-  if (isLive || !target){ return; }
+  if (!cd || isLive || !target) return;
   var diff = target.getTime() - Date.now();
-  if (diff <= 0){ loadSession(); return; }   // stream should be starting â€” re-check
+  if (diff <= 0){ loadSession(); return; }
   var s = Math.floor(diff/1000);
   var days = Math.floor(s/86400); s -= days*86400;
-  var hrs = Math.floor(s/3600); s -= hrs*3600;
-  var min = Math.floor(s/60); s -= min*60;
+  var hrs  = Math.floor(s/3600);  s -= hrs*3600;
+  var min  = Math.floor(s/60);    s -= min*60;
   cd.textContent = pad(days);
   document.getElementById('ch').textContent = pad(hrs);
   document.getElementById('cm').textContent = pad(min);
@@ -759,14 +755,13 @@ function renderNotice(st){
   if (!n) return;
   if (!st || !st.headline){ n.hidden = true; return; }
   document.getElementById('notice-h').textContent = st.headline;
-  var d = document.getElementById('notice-d');
   var txt = st.detail || '';
   if (st.backOn){
     var b = new Date(st.backOn + 'T12:00:00');
     var bs = b.toLocaleDateString([], { weekday:'long', month:'short', day:'numeric' });
     txt = txt ? (txt + ' Back on ' + bs + '.') : ('Back on ' + bs + '.');
   }
-  d.textContent = txt;
+  document.getElementById('notice-d').textContent = txt;
   n.hidden = false;
 }
 
@@ -780,14 +775,13 @@ function renderSession(data){
 
   renderNotice(data && data.status);
 
-  // ---- live right now ----
   if (data && data.live){
     isLive = true; target = null;
     widget.classList.add('is-live');
     label.textContent = 'Live now';
     count.classList.add('hide');
-    meta.innerHTML = data.title ? ('<b style="color:var(--text-1)">' + data.title + '</b>') : 'Streaming now.';
-    cta.textContent = 'Watch now â†’';
+    meta.textContent = data.title || 'Streaming now.';
+    cta.textContent = 'Watch now';
     cta.href = data.url || 'https://youtube.com/@AlphaTechTraders';
     cta.classList.remove('btn-line'); cta.classList.add('btn-gold');
     return;
@@ -797,23 +791,21 @@ function renderSession(data){
   widget.classList.remove('is-live');
   cta.classList.add('btn-line'); cta.classList.remove('btn-gold');
 
-  // ---- a stream is scheduled ----
   if (data && data.session && data.session.startsAt){
     target = new Date(data.session.startsAt);
     label.textContent = 'Next live session';
     count.classList.remove('hide');
-    meta.innerHTML = fmtWhen(target) + ' Â· ' + (data.session.title || 'NQ session');
+    meta.innerHTML = fmtWhen(target) + ' &middot; ' + (data.session.title || 'NQ session');
     cta.textContent = 'Set a reminder on YouTube';
     cta.href = data.session.url || 'https://youtube.com/@AlphaTechTraders';
     tickCount();
     return;
   }
 
-  // ---- nothing scheduled ----
   target = null;
   label.textContent = 'No session scheduled';
   count.classList.add('hide');
-  meta.textContent = 'Nothing on the calendar right now â€” subscribe and you\u2019ll know first.';
+  meta.textContent = 'Nothing on the calendar right now \u2014 subscribe and you\u2019ll know first.';
   cta.textContent = 'Subscribe on YouTube';
   cta.href = 'https://youtube.com/@AlphaTechTraders';
 }
@@ -823,23 +815,23 @@ function loadSession(){
     .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
     .then(renderSession)
     .catch(function(){
-      if (fallbackTried) return;
-      fallbackTried = true;
-      var meta = document.getElementById('wmeta');
-      if (meta) meta.textContent = 'Schedule unavailable â€” check YouTube for the next session.';
+      if (failed) return;
+      failed = true;
+      var m = document.getElementById('wmeta');
       var c = document.getElementById('wcount');
+      if (m) m.textContent = 'Schedule unavailable \u2014 check YouTube for the next session.';
       if (c) c.classList.add('hide');
     });
 }
 
 loadSession();
 setInterval(tickCount, 1000);
-setInterval(loadSession, 5*60*1000);   // re-poll every 5 min: picks up reschedules & going live
+setInterval(loadSession, 300000);
 document.addEventListener('visibilitychange', function(){
-  if (!document.hidden) loadSession();  // refresh when the tab comes back
+  if (!document.hidden) loadSession();
 });
 
-/* â”€â”€ DOM ladder â”€â”€ */
+/* ── DOM ladder ── */
 var BASE = 20847.25, N = 11;
 var rowsEl = document.getElementById('rows');
 var flagEl = document.getElementById('flag');
@@ -876,8 +868,8 @@ function step(){
   setTimeout(function(){ R[h].classList.remove('hit'); }, 200);
   cvd += Math.round((Math.random()-.42)*44);
   var d = Math.round((Math.random()-.5)*510);
-  cvdEl.textContent = (cvd>=0?'+':'âˆ’') + Math.abs(cvd).toLocaleString();
-  delEl.textContent = (d>=0?'+':'âˆ’') + Math.abs(d).toLocaleString();
+  cvdEl.textContent = (cvd>=0?'+':'−') + Math.abs(cvd).toLocaleString();
+  delEl.textContent = (d>=0?'+':'−') + Math.abs(d).toLocaleString();
   cvdEl.style.color = cvd>=0 ? 'var(--green)' : 'var(--red)';
   delEl.style.color = d>=0 ? 'var(--green)' : 'var(--red)';
   if (tick % 14 === 0 && !busy){
@@ -890,7 +882,7 @@ function step(){
 paint();
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(step, 640);
 
-/* â”€â”€ nav scrollspy â”€â”€ */
+/* ── nav scrollspy ── */
 var navA = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
 var secs = navA.map(function(a){ return document.querySelector(a.getAttribute('href')); });
 function spy(){
@@ -901,10 +893,10 @@ function spy(){
 window.addEventListener('scroll', spy, {passive:true});
 spy();
 
-/* â”€â”€ social-proof toast â”€â”€ */
+/* ── social-proof toast ── */
 var toastMsgs = [
-  'Next live session Monday, 9:15 ET â€” bring your questions.',
-  'â€œFinally someone who shows the losers too.â€ â€” YouTube comment',
+  'Next live session Monday, 9:15 ET — bring your questions.',
+  '“Finally someone who shows the losers too.” — YouTube comment',
   'New: NinjaTrader 8 indicators shipping soon. Join the waitlist.',
   'Every session is free. No signals, no upsell.'
 ];
@@ -918,24 +910,25 @@ function cycleToast(){
 }
 setTimeout(cycleToast, 3500);
 
-/* â”€â”€ waitlist -> Supabase â”€â”€ */
+/* ── waitlist -> Supabase ── */
 var SUPABASE_URL = 'https://ekignosslynvkjlmpjsl.supabase.co';
 var SUPABASE_KEY = 'sb_publishable_YB2AsmQ1D11LFdMOQZ9VQA_USmlGhpZ';
 async function joinList(btn){
   var i = btn.previousElementSibling;
   var email = i.value.trim();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { i.focus(); return; }
-  btn.disabled = true; btn.textContent = 'Addingâ€¦';
+  btn.disabled = true; btn.textContent = 'Adding…';
   try {
     var r = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
       method: 'POST',
       headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
       body: JSON.stringify({ email: email, source: 'indicators' })
     });
-    if (r.ok || r.status === 409) { btn.textContent = "You're on the list âœ“"; i.value = ''; i.disabled = true; }
+    if (r.ok || r.status === 409) { btn.textContent = "You're on the list ✓"; i.value = ''; i.disabled = true; }
     else { btn.textContent = 'Try again'; btn.disabled = false; }
   } catch (e) { btn.textContent = 'Try again'; btn.disabled = false; }
 }
+
 </script>
 </body>
 </html>
