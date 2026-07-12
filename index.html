@@ -207,8 +207,16 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .wait input::placeholder{color:var(--text-3)}
 
 /* ── live desk ── */
-.desk{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;margin-top:44px}
-@media(max-width:980px){.desk{grid-template-columns:1fr}}
+.desk{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px;margin-top:44px;align-items:start}
+@media(max-width:1080px){.desk{grid-template-columns:1fr}}
+.news-foot{padding:11px 16px;font-size:12px;color:var(--text-3);display:flex;align-items:center;gap:8px}
+.news-foot .d{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.6s ease-in-out infinite}
+.hl{display:block;padding:13px 16px;border-bottom:1px solid var(--line);text-decoration:none}
+.hl:last-child{border-bottom:0}
+.hl:hover{background:rgba(255,255,255,.03)}
+.hl-t{font-size:13.5px;color:var(--text-1);line-height:1.45;font-weight:500}
+.hl:hover .hl-t{color:var(--gold-2)}
+.hl-m{font-size:11px;color:var(--text-3);margin-top:5px;font-family:var(--mono)}
 .news{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);display:flex;flex-direction:column}
 .news-head{display:flex;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .news-head .lbl{font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px}
@@ -298,10 +306,10 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
   <div class="wrap nav-in">
     <a class="brand" href="#top"><img src="img/logo-192.png" alt="AlphaTech Traders"><b>AlphaTech Traders</b></a>
     <div class="nav-links">
+      <a href="#livedesk">Live Desk</a>
       <a href="#why">Why AlphaTech</a>
       <a href="#curriculum">Curriculum</a>
       <a href="#sessions">Live Sessions</a>
-      <a href="#livedesk">Live Desk</a>
       <a href="#coaching">Coaching</a>
       <a href="#indicators">Indicators</a>
     </div>
@@ -352,6 +360,89 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
     </div>
   </div>
 </header>
+
+<section class="sec" id="livedesk" style="padding-top:64px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow b">The Live Desk</div>
+      <h2>Watch the news. Watch what moves it.</h2>
+      <p class="sub">Live market news, the President's posts the second they land, and breaking headlines — the three things that move the NQ, side by side and in real time.</p>
+    </div>
+    <div class="desk">
+      <div class="news">
+        <div class="news-head">
+          <span class="lbl">Live Market News</span>
+          <div class="news-tabs">
+            <button class="news-tab on" data-ch="UCEAZeUIeJs0IjQiqTCdVSIg">Yahoo Finance</button>
+            <button class="news-tab" data-ch="UCIALMKvObZNtJ6AmdCLP7Lg">Bloomberg</button>
+          </div>
+        </div>
+        <div class="news-frame">
+          <iframe id="newsFrame" src="https://www.youtube.com/embed/live_stream?channel=UCEAZeUIeJs0IjQiqTCdVSIg" allow="encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="Live market news"></iframe>
+        </div>
+        <div class="news-foot"><span class="d"></span>Live now — press play, or switch channel above.</div>
+      </div>
+      <div class="feed">
+        <div class="feed-head">
+          <img class="ava" id="feedAva" src="https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/accounts/avatars/107/780/257/626/128/497/original/454286ac07a6f6e6.jpeg" alt="">
+          <div class="who">Donald J. Trump<small>@realDonaldTrump · Truth Social</small></div>
+          <span class="feed-live"><span class="d"></span>Live</span>
+        </div>
+        <div class="feed-body" id="feedBody"><div class="post"><div class="pc">Loading latest posts…</div></div></div>
+      </div>
+      <div class="feed">
+        <div class="feed-head">
+          <span class="ava" style="display:flex;align-items:center;justify-content:center;background:rgba(217,160,84,.14)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8bc79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM8 9h8M8 13h8M8 17h5"/></svg></span>
+          <div class="who">Breaking Headlines<small>CNBC · Markets &amp; Top News</small></div>
+          <span class="feed-live"><span class="d"></span>Live</span>
+        </div>
+        <div class="feed-body" id="hlBody"><div class="post"><div class="pc">Loading headlines…</div></div></div>
+      </div>
+    </div>
+    <p class="desk-note">Live news via YouTube. Trump posts pulled live from public Truth Social; headlines from CNBC. Shown for market context only — not an endorsement or financial advice.</p>
+  </div>
+</section>
+<script>
+(function(){
+  function rel(iso){var s=(Date.now()-new Date(iso).getTime())/1000;if(s<0)s=0;if(s<60)return Math.floor(s)+'s ago';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
+  function dec(s){return (s||'').replace(/&amp;/g,'&').replace(/&apos;/g,"'").replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ');}
+  /* news channel switch */
+  var frame=document.getElementById('newsFrame');
+  document.querySelectorAll('.news-tab').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.news-tab').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      frame.src='https://www.youtube.com/embed/live_stream?channel='+b.getAttribute('data-ch')+'&autoplay=1';
+    });
+  });
+  /* trump truth social */
+  var body=document.getElementById('feedBody');
+  var ava=document.getElementById('feedAva');
+  function renderTruth(posts){
+    if(!posts||!posts.length)return;
+    if(posts[0].avatar)ava.src=posts[0].avatar;
+    body.innerHTML=posts.slice(0,10).map(function(p){
+      var img='';
+      if(p.media&&p.media[0]&&(p.media[0].type==='image'||p.media[0].type==='gifv'))img='<img class="pm" src="'+(p.media[0].preview||p.media[0].url)+'" alt="" loading="lazy">';
+      else if(p.card&&p.card.image)img='<img class="pm" src="'+p.card.image+'" alt="" loading="lazy">';
+      var rt=p.isReblog?'<span style="color:var(--gold-2)">&#8635; ReTruth &middot; </span>':'';
+      return '<div class="post"><div class="pt">'+rt+rel(p.created_at)+'</div><div class="pc">'+(p.content||'')+img+'</div><a class="pl" href="'+p.url+'" target="_blank" rel="noopener">View on Truth Social &#8599;</a></div>';
+    }).join('');
+  }
+  function loadTruth(){fetch('https://ekignosslynvkjlmpjsl.supabase.co/functions/v1/truth').then(function(r){return r.json();}).then(renderTruth).catch(function(){});}
+  loadTruth();setInterval(loadTruth,45000);
+  /* breaking headlines */
+  var hb=document.getElementById('hlBody');
+  function renderHl(items){
+    if(!items||!items.length)return;
+    hb.innerHTML=items.slice(0,18).map(function(h){
+      return '<a class="hl" href="'+h.link+'" target="_blank" rel="noopener"><div class="hl-t">'+dec(h.title)+'</div><div class="hl-m">'+h.src+' &middot; '+rel(h.pubDate)+'</div></a>';
+    }).join('');
+  }
+  function loadHl(){fetch('https://ekignosslynvkjlmpjsl.supabase.co/functions/v1/headlines').then(function(r){return r.json();}).then(renderHl).catch(function(){});}
+  loadHl();setInterval(loadHl,90000);
+})();
+</script>
 
 <section class="sec" id="why">
   <div class="wrap">
@@ -423,69 +514,6 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
     </div>
   </div>
 </section>
-
-<section class="sec" id="livedesk">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow b">The Live Desk</div>
-      <h2>Watch the news. Watch what moves it.</h2>
-      <p class="sub">Live market news on one side, market-moving posts the moment they land on the other. Trump's Truth Social moves the NQ in seconds — see it in real time, right here.</p>
-    </div>
-    <div class="desk">
-      <div class="news">
-        <div class="news-head">
-          <span class="lbl">Live Market News</span>
-          <div class="news-tabs">
-            <button class="news-tab on" data-ch="UCEAZeUIeJs0IjQiqTCdVSIg">Yahoo Finance</button>
-            <button class="news-tab" data-ch="UCIALMKvObZNtJ6AmdCLP7Lg">Bloomberg</button>
-          </div>
-        </div>
-        <div class="news-frame">
-          <iframe id="newsFrame" src="https://www.youtube.com/embed/live_stream?channel=UCEAZeUIeJs0IjQiqTCdVSIg" allow="encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="Live market news"></iframe>
-        </div>
-      </div>
-      <div class="feed">
-        <div class="feed-head">
-          <img class="ava" id="feedAva" src="https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/accounts/avatars/107/780/257/626/128/497/original/454286ac07a6f6e6.jpeg" alt="">
-          <div class="who">Donald J. Trump<small>@realDonaldTrump · Truth Social</small></div>
-          <span class="feed-live"><span class="d"></span>Live</span>
-        </div>
-        <div class="feed-body" id="feedBody"><div class="post"><div class="pc">Loading latest posts…</div></div></div>
-      </div>
-    </div>
-    <p class="desk-note">Live news via YouTube. Posts pulled live from public Truth Social — shown for market context only, not an endorsement or financial advice.</p>
-  </div>
-</section>
-<script>
-(function(){
-  var frame=document.getElementById('newsFrame');
-  document.querySelectorAll('.news-tab').forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('.news-tab').forEach(function(x){x.classList.remove('on');});
-      b.classList.add('on');
-      frame.src='https://www.youtube.com/embed/live_stream?channel='+b.getAttribute('data-ch')+'&autoplay=1';
-    });
-  });
-  var body=document.getElementById('feedBody');
-  var ava=document.getElementById('feedAva');
-  var EP='https://ekignosslynvkjlmpjsl.supabase.co/functions/v1/truth';
-  function rel(iso){var s=(Date.now()-new Date(iso).getTime())/1000;if(s<60)return Math.floor(s)+'s ago';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
-  function render(posts){
-    if(!posts||!posts.length)return;
-    if(posts[0].avatar)ava.src=posts[0].avatar;
-    body.innerHTML=posts.slice(0,10).map(function(p){
-      var img='';
-      if(p.media&&p.media[0]&&(p.media[0].type==='image'||p.media[0].type==='gifv'))img='<img class="pm" src="'+(p.media[0].preview||p.media[0].url)+'" alt="" loading="lazy">';
-      else if(p.card&&p.card.image)img='<img class="pm" src="'+p.card.image+'" alt="" loading="lazy">';
-      var rt=p.isReblog?'<span style="color:var(--gold-2)">↻ ReTruth · </span>':'';
-      var content=p.content||'';
-      return '<div class="post"><div class="pt">'+rt+rel(p.created_at)+'</div><div class="pc">'+content+img+'</div><a class="pl" href="'+p.url+'" target="_blank" rel="noopener">View on Truth Social ↗</a></div>';
-    }).join('');
-  }
-  function load(){fetch(EP).then(function(r){return r.json();}).then(render).catch(function(){});}
-  load();setInterval(load,45000);
-})();
-</script>
 
 <section class="sec" id="coaching">
   <div class="wrap">
