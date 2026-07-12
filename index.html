@@ -726,7 +726,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 
 <div class="cta-final">
   <div class="wrap">
-    <div class="eyebrow g">Next Session · Monday 9:15 ET</div>
+    <div class="eyebrow g" id="cta-eyebrow">Live Every Trading Day</div>
     <h2>Watch the tape with me, live.</h2>
     <p class="sub" style="max-width:52ch;margin:0 auto 30px">Free, every trading day. Bring your questions to the chat — I answer them between setups.</p>
     <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">→</span></a>
@@ -772,7 +772,7 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 
 <div class="toast" id="toast">
   <img class="ic" src="img/logo-192.png" alt="">
-  <span id="toast-txt">Next live session Monday, 9:15 ET — bring your questions.</span>
+  <span id="toast-txt">Live sessions every trading day — free, unedited.</span>
   <button class="x" onclick="document.getElementById('toast').classList.remove('show')" aria-label="Dismiss">✕</button>
 </div>
 
@@ -856,6 +856,19 @@ function renderSession(data){
     count.classList.remove('hide');
     meta.innerHTML = fmtWhen(target) + ' &middot; ' + (data.session.title || 'NQ session');
     cta.textContent = 'Set a reminder on YouTube';
+    if (typeof toastMsgs !== 'undefined'){
+      var dw = target.toLocaleDateString([], { weekday:'long' });
+      var tw = target.toLocaleTimeString([], { hour:'numeric', minute:'2-digit' });
+      var tzz = (target.toLocaleTimeString([], { timeZoneName:'short' }).split(' ').pop()) || '';
+      toastMsgs[0] = 'Next live session ' + dw + ', ' + tw + ' ' + tzz + ' \u2014 bring your questions.';
+    }
+    var cev = document.getElementById('cta-eyebrow');
+    if (cev){
+      var dw2 = target.toLocaleDateString([], { weekday:'long' });
+      var tw2 = target.toLocaleTimeString([], { hour:'numeric', minute:'2-digit' });
+      var tz2 = (target.toLocaleTimeString([], { timeZoneName:'short' }).split(' ').pop()) || '';
+      cev.textContent = 'Next Session \u00b7 ' + dw2 + ' ' + tw2 + ' ' + tz2;
+    }
     cta.href = data.session.url || 'https://youtube.com/@AlphaTechTraders';
     tickCount();
     return;
@@ -885,7 +898,7 @@ function loadSession(){
 
 loadSession();
 setInterval(tickCount, 1000);
-setInterval(loadSession, 300000);
+setInterval(loadSession, 600000);
 document.addEventListener('visibilitychange', function(){
   if (!document.hidden) loadSession();
 });
@@ -1073,7 +1086,7 @@ spy();
 
 /* ── social-proof toast ── */
 var toastMsgs = [
-  'Next live session Monday, 9:15 ET — bring your questions.',
+  'Live sessions every trading day — free, unedited.',
   '“Finally someone who shows the losers too.” — YouTube comment',
   'New: NinjaTrader 8 indicators shipping soon. Join the waitlist.',
   'Every session is free. No signals, no upsell.'
