@@ -202,10 +202,36 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .sr .t{font-family:var(--mono);font-size:12.5px;color:var(--text-3)}
 .sr.hi{background:rgba(217,160,84,.08)}
 .sr.hi .d,.sr.hi .t{color:var(--gold-2);font-weight:600}
-.sr.br{background:rgba(255,255,255,.015)}
-.sr.br .d{color:var(--text-3);font-style:italic}
-.sr.br .t{color:var(--text-3);opacity:.75}
-.sess-wrap{max-width:640px}
+
+/* ── economic calendar ── */
+.cal{border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.cal-head{background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);padding:11px 14px;display:flex;justify-content:space-between;align-items:center}
+.cal-t{font-size:12.5px;font-weight:700;color:var(--gold-2);letter-spacing:.02em}
+.cal-s{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3)}
+.cal-body{max-height:352px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.cal-body::-webkit-scrollbar{width:5px}
+.cal-body::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:3px}
+.cal-day{position:sticky;top:0;z-index:2;background:#101540;border-bottom:1px solid var(--line);padding:6px 14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--text-3)}
+.cal-day.today{color:var(--gold);background:#151a48}
+.ce{display:grid;grid-template-columns:52px 1fr auto;gap:9px;align-items:center;padding:9px 14px;border-bottom:1px solid rgba(32,38,78,.55);transition:background .15s}
+.ce:hover{background:rgba(255,255,255,.02)}
+.ce:last-child{border-bottom:0}
+.ce-t{font-family:var(--mono);font-size:11px;color:var(--text-3)}
+.ce-m{min-width:0}
+.ce-n{font-size:12.5px;color:var(--text-2);line-height:1.35;display:flex;align-items:center;gap:6px}
+.ce.t1 .ce-n{color:var(--text-1);font-weight:600}
+.ce-dot{width:5px;height:5px;border-radius:50%;background:var(--line-2);flex:none}
+.ce.t1 .ce-dot{background:var(--gold);box-shadow:0 0 6px rgba(217,160,84,.65)}
+.ce.fed .ce-dot{background:var(--blue,#60a5fa)}
+.ce-p{font-family:var(--mono);font-size:9.5px;color:var(--text-3);margin-top:2px;opacity:.8}
+.ce-v{text-align:right;font-family:var(--mono);font-size:10.5px;white-space:nowrap}
+.ce-v b{display:block;color:var(--text-2);font-weight:600;font-size:11.5px}
+.ce-v span{color:var(--text-3);opacity:.75}
+.ce.done .ce-v b{color:var(--gold-2)}
+.cal-foot{border-top:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 14px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:9.5px;color:var(--text-3);letter-spacing:.05em;text-transform:uppercase}
+.cal-key{display:flex;align-items:center;gap:5px}
+.cal-key i{width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(217,160,84,.65)}
+.cal-empty{padding:34px 14px;text-align:center;font-size:12.5px;color:var(--text-3)}
 
 /* ── pricing ── */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
@@ -580,8 +606,8 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 </section>
 
 <section class="sec" id="sessions">
-  <div class="wrap">
-    <div class="sess-wrap">
+  <div class="wrap split">
+    <div>
       <div class="eyebrow b">Free · Every Trading Day</div>
       <h2>I trade live. You watch the whole thing.</h2>
       <p class="sub">Real time, unedited, wins and losses. I call out what I'm seeing on the tape as I see it — the setups I take, the ones I pass on, and the ones I get wrong.</p>
@@ -594,6 +620,23 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
       <div class="hero-ctas" style="justify-content:flex-start">
         <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">→</span></a>
       </div>
+    </div>
+
+    <div>
+      <div class="cal">
+        <div class="cal-head">
+          <div class="cal-t">Economic calendar</div>
+          <div class="cal-s">US · High impact</div>
+        </div>
+        <div class="cal-body" id="cal-body">
+          <div class="cal-empty">Loading…</div>
+        </div>
+        <div class="cal-foot">
+          <span>All times ET</span>
+          <span class="cal-key"><i class="k1"></i> Moves the tape</span>
+        </div>
+      </div>
+      <div class="cap">The calendar sets the day. Know what's coming.</div>
     </div>
   </div>
 </section>
@@ -931,6 +974,79 @@ function loadNQ(){
     });
 }
 
+/* -- US economic calendar (TradingView data, our styling) -- */
+var CAL_API = 'https://ekignosslynvkjlmpjsl.supabase.co/functions/v1/calendar';
+
+function esc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function renderCal(data){
+  var box = document.getElementById('cal-body');
+  if (!box) return;
+  var evs = (data && data.events) || [];
+  if (!evs.length){
+    box.innerHTML = '<div class="cal-empty">No major US releases in the next 10 days.</div>';
+    return;
+  }
+
+  var todayKey = new Date().toDateString();
+  var html = '', lastKey = '';
+
+  evs.forEach(function(e){
+    var d = new Date(e.ts);
+    var key = d.toDateString();
+
+    if (key !== lastKey){
+      lastKey = key;
+      var isToday = key === todayKey;
+      var lbl = isToday ? 'Today' :
+        d.toLocaleDateString([], { weekday:'long', month:'short', day:'numeric' });
+      html += '<div class="cal-day' + (isToday ? ' today' : '') + '">' + esc(lbl) + '</div>';
+    }
+
+    var time = d.toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', hour12:false });
+    var cls = 'ce' + (e.tier1 ? ' t1' : '') + (e.fed && !e.tier1 ? ' fed' : '') +
+              (e.released ? ' done' : '');
+
+    var vals = '';
+    if (e.released && e.actual != null){
+      vals = '<b>' + esc(e.actual) + '</b><span>fc ' + esc(e.forecast || '\u2014') + '</span>';
+    } else if (e.forecast != null){
+      vals = '<b>' + esc(e.forecast) + '</b><span>prev ' + esc(e.previous || '\u2014') + '</span>';
+    } else if (e.previous != null){
+      vals = '<span>prev ' + esc(e.previous) + '</span>';
+    }
+
+    html += '<div class="' + cls + '">' +
+              '<div class="ce-t">' + esc(time) + '</div>' +
+              '<div class="ce-m">' +
+                '<div class="ce-n"><i class="ce-dot"></i>' + esc(e.title) + '</div>' +
+                (e.period ? '<div class="ce-p">' + esc(e.period) + '</div>' : '') +
+              '</div>' +
+              '<div class="ce-v">' + vals + '</div>' +
+            '</div>';
+  });
+
+  box.innerHTML = html;
+}
+
+function loadCal(){
+  fetch(CAL_API)
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(renderCal)
+    .catch(function(){
+      var box = document.getElementById('cal-body');
+      if (box) box.innerHTML = '<div class="cal-empty">Calendar unavailable right now.</div>';
+    });
+}
+
+if (document.getElementById('cal-body')){
+  loadCal();
+  setInterval(loadCal, 15 * 60 * 1000);
+}
 if (document.getElementById('tape')){
   loadNQ();
   setInterval(loadNQ, 60000);
