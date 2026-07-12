@@ -201,6 +201,10 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 .sr .t{font-family:var(--mono);font-size:12.5px;color:var(--text-3)}
 .sr.hi{background:rgba(217,160,84,.08)}
 .sr.hi .d,.sr.hi .t{color:var(--gold-2);font-weight:600}
+.sr.br{background:rgba(255,255,255,.015)}
+.sr.br .d{color:var(--text-3);font-style:italic}
+.sr.br .t{color:var(--text-3);opacity:.75}
+.sess-wrap{max-width:640px}
 
 /* ── pricing ── */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
@@ -575,28 +579,21 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 </section>
 
 <section class="sec" id="sessions">
-  <div class="wrap split">
-    <div>
+  <div class="wrap">
+    <div class="sess-wrap">
       <div class="eyebrow b">Free · Every Trading Day</div>
       <h2>I trade live. You watch the whole thing.</h2>
       <p class="sub">Real time, unedited, wins and losses. I call out what I'm seeing on the tape as I see it — the setups I take, the ones I pass on, and the ones I get wrong.</p>
       <div class="sched">
-        <div class="sr hi"><span class="d">Monday — Friday</span><span class="t">09:15 ET</span></div>
-        <div class="sr"><span class="d">Pre-market read</span><span class="t">09:15 – 09:30</span></div>
-        <div class="sr"><span class="d">The open</span><span class="t">09:30 – 11:00</span></div>
-        <div class="sr"><span class="d">Session recap</span><span class="t">Before close</span></div>
+        <div class="sr hi"><span class="d">Monday — Friday</span><span class="t">08:15 ET</span></div>
+        <div class="sr"><span class="d">Pre-market read</span><span class="t">08:15 – 08:30</span></div>
+        <div class="sr br"><span class="d">Break — back at the open</span><span class="t">08:30 – 09:30</span></div>
+        <div class="sr"><span class="d">The open</span><span class="t">09:30 – 16:00</span></div>
+        <div class="sr"><span class="d">Session recap</span><span class="t">16:00 – 17:00</span></div>
       </div>
       <div class="hero-ctas" style="justify-content:flex-start">
         <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Subscribe on YouTube <span class="arr">→</span></a>
       </div>
-    </div>
-    <div>
-      <div class="ladder">
-        <div class="lad-head"><b>NQZ6</b><span>Depth of Market</span></div>
-        <div class="rows" id="rows"></div>
-        <div class="lad-foot"><div>CVD <b id="cvd">+1,284</b></div><div>&Delta; <b id="delta">&minus;318</b></div></div>
-      </div>
-      <div class="flag" id="flag"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0 10 9H0L5 0Z"/></svg>Absorption at offer — what the candle doesn't show you</div>
     </div>
   </div>
 </section>
