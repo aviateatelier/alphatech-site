@@ -194,13 +194,10 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.8vw,48px);let
 /* ── ladder / sessions ── */
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 @media(max-width:980px){.split{grid-template-columns:1fr;gap:40px}}
-/* sessions: schedule column + calendar bottom out together */
-#sessions .split{align-items:stretch}
-#sessions .split > div:first-child{display:flex;flex-direction:column;justify-content:flex-start}
-#sessions .split > div:last-child{display:flex;flex-direction:column;justify-content:flex-start}
-#sessions .cal{display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
-#sessions .cal-body{flex:1 1 auto;max-height:none;min-height:0}
-#sessions .cap{margin-top:12px;flex:none}
+/* sessions: calendar height matches the schedule column */
+#sessions .split{align-items:center}
+#sessions .cal{display:flex;flex-direction:column;height:392px}
+#sessions .cal-body{flex:1 1 auto;min-height:0;overflow-y:auto}
 .split h2,.split .eyebrow{text-align:left}
 .sched{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .sr{display:flex;justify-content:space-between;padding:13px 18px;border-bottom:1px solid var(--line);font-size:14px}
