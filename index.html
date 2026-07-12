@@ -80,7 +80,9 @@ section{scroll-margin-top:90px}
 .arr{font-family:var(--serif)}
 
 /* ── hero ── */
-.hero{position:relative;text-align:center;padding:96px 0 40px;overflow:hidden}
+.hero{position:relative;padding:96px 0 40px;overflow:hidden}
+.hero-split{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center;text-align:left}
+@media(max-width:980px){.hero-split{grid-template-columns:1fr;gap:38px;text-align:center}}
 .hero-glow{position:absolute;inset:0;pointer-events:none}
 .hero-glow::before{content:'';position:absolute;top:-260px;left:50%;transform:translateX(-50%);width:1100px;height:680px;background:radial-gradient(ellipse at center,rgba(91,103,255,.13),transparent 62%)}
 .hero-glow::after{content:'';position:absolute;top:180px;left:50%;transform:translateX(-50%);width:760px;height:420px;background:radial-gradient(ellipse at center,rgba(217,160,84,.09),transparent 65%)}
@@ -88,9 +90,37 @@ section{scroll-margin-top:90px}
 h1{font-family:var(--serif);font-weight:800;font-size:clamp(42px,6.2vw,80px);line-height:1.04;letter-spacing:-.01em}
 h1 .w1{color:var(--text-1)}
 h1 .w2{background:linear-gradient(115deg,var(--gold-2) 10%,var(--gold) 50%,#c98d3e 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .lede{font-size:17.5px;color:var(--text-2);max-width:62ch;margin:26px auto 0;line-height:1.7}
-.hero .lede-2{font-size:15px;color:var(--text-3);max-width:56ch;margin:14px auto 0}
-.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.hero .lede{font-size:17.5px;color:var(--text-2);max-width:56ch;margin:26px 0 0;line-height:1.7}
+.hero .lede-2{font-size:15px;color:var(--text-3);max-width:52ch;margin:14px 0 0}
+.hero-ctas{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;margin-top:34px}
+@media(max-width:980px){
+  .hero .lede,.hero .lede-2{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+}
+
+/* ── DOM ladder ── */
+.ladder{border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.lad-head{background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);padding:10px 13px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3)}
+.lad-head b{color:var(--gold-2);font-weight:700;letter-spacing:.03em}
+.rows{padding:5px 0}
+.row{display:grid;grid-template-columns:1fr 76px 1fr;align-items:center;padding:3.5px 12px;font-family:var(--mono);font-size:12px;position:relative}
+.px{text-align:center;color:var(--text-2);font-weight:600}
+.sz{color:var(--text-3);position:relative;z-index:1;font-weight:500;transition:color .25s,font-weight .25s}
+.sz.b{text-align:right} .sz.a{text-align:left}
+.bar{position:absolute;top:2px;bottom:2px;border-radius:2px;transition:width .45s cubic-bezier(.2,.9,.3,1)}
+.bar.b{right:calc(50% + 38px);background:var(--green);opacity:.15}
+.bar.a{left:calc(50% + 38px);background:var(--red);opacity:.15}
+.row.mid{background:rgba(217,160,84,.09)}
+.row.mid .px{color:var(--gold);font-weight:700}
+.row.hit .sz.b{color:var(--green)}
+.row.hit .sz.a{color:var(--red)}
+.row.abs .bar.a{opacity:.42}
+.row.abs .sz.a{color:var(--red);font-weight:700}
+.lad-foot{border-top:1px solid var(--line);background:rgba(255,255,255,.03);padding:9px 13px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--text-3)}
+.lad-foot b{font-weight:600}
+.flag{margin-top:10px;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);opacity:0;transition:opacity .4s}
+.flag.on{opacity:1;color:var(--gold)}
+.cap{margin-top:12px;font-size:11.5px;color:var(--text-3);text-align:center;font-family:var(--mono)}
 
 /* ── session widget ── */
 .widget{max-width:880px;margin:56px auto 0;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:0 30px 70px rgba(0,0,0,.5);padding:26px 30px;text-align:left}
@@ -328,6 +358,8 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 <header class="hero" id="top">
   <div class="hero-glow"></div>
   <div class="wrap">
+   <div class="hero-split">
+    <div class="hero-copy">
     <h1><span class="w1">Read the tape.</span><br><span class="w2">Not the hype.</span></h1>
     <p class="lede">Live NQ futures trading, unedited — the setups I take, the ones I pass on, and the ones I get wrong. Orderflow, market structure, and the mechanics of how price actually moves, taught from the ground up.</p>
     <p class="lede-2">No signals. No alerts. No profit screenshots. If that's what you're after, this isn't your channel — and that's the point.</p>
@@ -335,6 +367,24 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
       <a class="btn btn-gold" href="https://youtube.com/@AlphaTechTraders" target="_blank" rel="noopener">Watch a live session <span class="arr">→</span></a>
       <a class="btn btn-line" href="#coaching">Book one-on-one</a>
     </div>
+    </div>
+
+    <div class="hero-dom">
+      <div class="ladder">
+        <div class="lad-head"><b>NQZ6</b><span>Depth of Market</span></div>
+        <div class="rows" id="rows"></div>
+        <div class="lad-foot">
+          <div>CVD <b id="cvd">+1,284</b></div>
+          <div>Δ <b id="delta">−318</b></div>
+        </div>
+      </div>
+      <div class="flag" id="flag">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0 10 9H0L5 0Z"/></svg>
+        Absorption at offer
+      </div>
+      <div class="cap">What the candle doesn't show you</div>
+    </div>
+   </div>
 
     <div class="widget">
       <div class="wh">
@@ -774,6 +824,81 @@ async function joinList(btn){
     else { btn.textContent = 'Try again'; btn.disabled = false; }
   } catch (e) { btn.textContent = 'Try again'; btn.disabled = false; }
 }
+
+/* ── hero DOM ladder ── */
+(function(){
+  const BASE = 20847.25, N = 11;
+  const rowsEl = document.getElementById('rows');
+  const flagEl = document.getElementById('flag');
+  const cvdEl  = document.getElementById('cvd');
+  const delEl  = document.getElementById('delta');
+  if (!rowsEl) return;
+
+  const S = Array.from({length:N}, (_,i) => ({
+    px: BASE + (Math.floor(N/2) - i) * .25,
+    b: 20 + Math.floor(Math.random()*170),
+    a: 20 + Math.floor(Math.random()*170),
+  }));
+
+  rowsEl.innerHTML = S.map((s,i) => `
+    <div class="row${i===Math.floor(N/2)?' mid':''}">
+      <div style="position:relative"><div class="bar b" style="width:0"></div><div class="sz b">${s.b}</div></div>
+      <div class="px">${s.px.toFixed(2)}</div>
+      <div style="position:relative"><div class="bar a" style="width:0"></div><div class="sz a">${s.a}</div></div>
+    </div>`).join('');
+
+  const R = [...rowsEl.querySelectorAll('.row')];
+  const MAXW = 96;
+  let cvd = 1284, tick = 0, busy = false;
+
+  function paint(){
+    const mx = Math.max(...S.flatMap(s => [s.b, s.a]));
+    S.forEach((s,i) => {
+      R[i].querySelector('.sz.b').textContent = s.b;
+      R[i].querySelector('.sz.a').textContent = s.a;
+      R[i].querySelector('.bar.b').style.width = (s.b/mx*MAXW)+'px';
+      R[i].querySelector('.bar.a').style.width = (s.a/mx*MAXW)+'px';
+    });
+  }
+
+  function step(){
+    tick++;
+    S.forEach(s => {
+      s.b = Math.max(8, Math.round(s.b + (Math.random()-.5)*28));
+      s.a = Math.max(8, Math.round(s.a + (Math.random()-.5)*28));
+    });
+
+    R.forEach(r => r.classList.remove('hit'));
+    const h = 3 + Math.floor(Math.random()*5);
+    R[h].classList.add('hit');
+    setTimeout(() => R[h].classList.remove('hit'), 200);
+
+    cvd += Math.round((Math.random()-.42)*44);
+    const d = Math.round((Math.random()-.5)*510);
+    cvdEl.textContent = (cvd>=0?'+':'−') + Math.abs(cvd).toLocaleString();
+    delEl.textContent = (d>=0?'+':'−') + Math.abs(d).toLocaleString();
+    cvdEl.style.color = cvd>=0 ? 'var(--green)' : 'var(--red)';
+    delEl.style.color = d>=0 ? 'var(--green)' : 'var(--red)';
+
+    if (tick % 14 === 0 && !busy){
+      busy = true;
+      const r = 3;
+      S[r].a = 880;
+      R[r].classList.add('abs');
+      flagEl.classList.add('on');
+      setTimeout(() => {
+        R[r].classList.remove('abs');
+        flagEl.classList.remove('on');
+        S[r].a = 55 + Math.floor(Math.random()*85);
+        busy = false;
+      }, 2500);
+    }
+    paint();
+  }
+
+  paint();
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(step, 640);
+})();
 </script>
 </body>
 </html>
