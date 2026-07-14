@@ -351,21 +351,27 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
   var TRACK=document.getElementById('tickTrack');
   var ENDPOINT='https://ekignosslynvkjlmpjsl.supabase.co/functions/v1/market';
 
-  /* Price only - no % change. Yahoo does not publish futures settlements, so
-     any percentage derived from it measures the wrong session and will not
-     match Tradovate/TradingView. See the market edge function header. */
+  /* Futures % is measured vs the prior 17:00 ET close (settlement approx),
+     matching what Tradovate/TradingView show for daily change. See the
+     market edge function header for the full story. */
   function fmtPx(v, dp){
     if(dp === undefined || dp === null) dp = (v < 10 ? 4 : 2);
     return v.toLocaleString('en-US',{minimumFractionDigits:dp,maximumFractionDigits:dp});
   }
+  function fmtPct(p){ return (p>=0?'+':'')+p.toFixed(2)+'%'; }
 
   function render(items){
     if(!items || !items.length) return;
     var html = items.map(function(it){
       var cls = it.stale ? 'tk tk-stale' : 'tk';
+      var pct = '';
+      if(it.pct !== null && it.pct !== undefined){
+        var up = it.pct >= 0;
+        pct = '<span class="tk-ch '+(up?'up':'dn')+'">'+fmtPct(it.pct)+'</span>';
+      }
       return '<span class="'+cls+'">'+
                '<span class="tk-name">'+it.label+'</span>'+
-               '<span class="tk-px">'+fmtPx(it.price, it.dp)+'</span>'+
+               '<span class="tk-px">'+fmtPx(it.price, it.dp)+'</span>'+pct+
              '</span>';
     }).join('');
     TRACK.innerHTML = html + html;
