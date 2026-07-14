@@ -51,6 +51,8 @@ section{scroll-margin-top:90px}
 .tk-name{font-weight:700;color:var(--text-1);letter-spacing:.01em}
 .tk-px{font-family:var(--mono);color:var(--text-2)}
 .tk-ch{font-family:var(--mono);font-weight:500;font-size:12.5px}
+.tk-stale .tk-px,.tk-stale .tk-name{opacity:.62}
+.tk-cl{font-family:var(--mono);font-size:8.5px;color:var(--text-3);vertical-align:super;margin-left:2px;opacity:.75;letter-spacing:.04em}
 .tk-ch.up{color:var(--green)}
 .tk-ch.dn{color:var(--red)}
 @media(prefers-reduced-motion:reduce){.tick-track{animation:none}}
@@ -354,8 +356,10 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
     if(!items||!items.length)return;
     var html=items.map(function(it){
       var up=it.pct>=0;
-      return '<span class="tk"><span class="tk-name">'+it.label+'</span>'+
-             '<span class="tk-px">'+fmtPx(it.price)+'</span>'+
+      var cls = it.stale ? 'tk tk-stale' : 'tk';
+      var mark = it.stale ? '<span class="tk-cl" title="Previous close - market not open yet">c</span>' : '';
+      return '<span class="'+cls+'"><span class="tk-name">'+it.label+'</span>'+
+             '<span class="tk-px">'+fmtPx(it.price)+'</span>'+mark+
              '<span class="tk-ch '+(up?'up':'dn')+'">'+fmtPct(it.pct)+'</span></span>';
     }).join('');
     TRACK.innerHTML=html+html;
