@@ -40,9 +40,10 @@ section{scroll-margin-top:90px}
 
 /* ── nav ── */
 .topbar{position:sticky;top:0;z-index:80}
-.ticker{background:#080b20;border-bottom:1px solid var(--line);overflow:hidden;position:relative}
-.ticker .tradingview-widget-container{width:100%}
-.ticker iframe{display:block!important}
+.ticker{background:#080b20;border-bottom:1px solid var(--line);height:44px;overflow:hidden;display:flex;align-items:center;position:relative}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:56px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,#080b20,transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,#080b20,transparent)}
 .tick-track{display:flex;white-space:nowrap;align-items:center;animation:tickscroll 55s linear infinite;will-change:transform}
 .ticker:hover .tick-track{animation-play-state:paused}
 @keyframes tickscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -342,30 +343,31 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 <body>
 
 <div class="topbar"><!-- desk: equal-height panels -->
-<!-- TradingView ticker tape - official embed, live exchange data -->
 <div class="ticker" aria-label="Live market prices">
-  <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-  </div>
+  <div class="tick-track" id="tickTrack"><span class="tk"><span class="tk-name">Loading live market data…</span></span></div>
 </div>
-<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-{
-  "symbols": [
-    { "proName": "CME_MINI:NQ1!",  "title": "NQ" },
-    { "proName": "CME_MINI:ES1!",  "title": "ES" },
-    { "proName": "NASDAQ:IXIC",    "title": "Nasdaq" },
-    { "proName": "SP:SPX",         "title": "S&P 500" },
-    { "proName": "COMEX:GC1!",     "title": "Gold" },
-    { "proName": "NYMEX:CL1!",     "title": "Crude" },
-    { "proName": "FX:EURUSD",      "title": "EUR/USD" },
-    { "proName": "BITSTAMP:BTCUSD","title": "Bitcoin" }
-  ],
-  "showSymbolLogo": false,
-  "isTransparent": true,
-  "displayMode": "adaptive",
-  "colorTheme": "dark",
-  "locale": "en"
-}
+<script>
+(function(){
+  var TRACK=document.getElementById('tickTrack');
+  var ENDPOINT='https://ekignosslynvkjlmpjsl.supabase.co/functions/v1/market';
+  function fmtPx(v){var d=v<10?4:2;return v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
+  function fmtPct(p){return (p>=0?'+':'')+p.toFixed(2)+'%';}
+  function render(items){
+    if(!items||!items.length)return;
+    var html=items.map(function(it){
+      var up=it.pct>=0;
+      var cls = it.stale ? 'tk tk-stale' : 'tk';
+      var mark = it.stale ? '<span class="tk-cl" title="Previous close - market not open yet">c</span>' : '';
+      return '<span class="'+cls+'"><span class="tk-name">'+it.label+'</span>'+
+             '<span class="tk-px">'+fmtPx(it.price)+'</span>'+mark+
+             '<span class="tk-ch '+(up?'up':'dn')+'">'+fmtPct(it.pct)+'</span></span>';
+    }).join('');
+    TRACK.innerHTML=html+html;
+  }
+  function load(){fetch(ENDPOINT).then(function(r){return r.json();}).then(render).catch(function(){});}
+  load();
+  setInterval(load,60000);
+})();
 </script>
 <nav class="nav">
   <div class="wrap nav-in">
