@@ -499,9 +499,9 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
           </div>
         </div>
         <div class="news-frame">
-          <iframe id="newsFrame" src="https://www.youtube.com/embed/live_stream?channel=UCEAZeUIeJs0IjQiqTCdVSIg" allow="encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="Live market news"></iframe>
+          <iframe id="newsFrame" src="about:blank" allow="encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="Live market news"></iframe>
         </div>
-        <div class="news-foot"><span class="d"></span>Live now — press play, or switch channel above.</div>
+        <div class="news-foot"><span class="d" style="background:#8288a8;box-shadow:none;animation:none"></span>Checking what's on air…</div>
       </div>
       <div class="feed">
         <div class="feed-head">
@@ -527,16 +527,52 @@ footer{border-top:1px solid var(--line);margin-top:96px;padding:56px 0 40px;back
 (function(){
   function rel(iso){var s=(Date.now()-new Date(iso).getTime())/1000;if(s<0)s=0;if(s<60)return Math.floor(s)+'s ago';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
   function dec(s){return (s||'').replace(/&amp;/g,'&').replace(/&apos;/g,"'").replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ');}
-  /* news channel switch */
+  /* news channel switch - checks whether the channel is ACTUALLY live */
   var frame=document.getElementById('newsFrame');
+  var NEWS_API='https://ekignosslynvkjlmpjsl.supabase.co/functions/v1/newsdesk';
+  var newsState=null, newsKey='yahoo';
+
+  function newsFoot(html, live){
+    var f=document.querySelector('.news-foot');
+    if(!f) return;
+    var dot = live ? '<span class="d"></span>' : '<span class="d" style="background:#8288a8;box-shadow:none;animation:none"></span>';
+    f.innerHTML = dot + html;
+  }
+
+  function paintNews(){
+    if(!newsState || !newsState[newsKey]) return;
+    var c=newsState[newsKey];
+    if(c.live && c.videoId){
+      frame.src='https://www.youtube.com/embed/'+c.videoId;
+      newsFoot('<b style="color:#f87171">LIVE</b> &middot; '+(c.name||'')+' is on air.', true);
+    } else if(c.videoId){
+      frame.src='https://www.youtube.com/embed/'+c.videoId;
+      var w='';
+      if(c.publishedAt){ var d=new Date(c.publishedAt); w=' &middot; '+d.toLocaleDateString([],{month:'short',day:'numeric'}); }
+      newsFoot('Off air &middot; playing the latest session'+w+'.', false);
+    } else {
+      newsFoot('Off air &mdash; nothing to play right now.', false);
+    }
+  }
+
+  function loadNews(){
+    fetch(NEWS_API).then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function(d){ newsState=d; paintNews(); })
+      .catch(function(){ newsFoot('News feed unavailable.', false); });
+  }
+
   document.querySelectorAll('.news-tab').forEach(function(b){
     b.addEventListener('click',function(){
-      document.querySelectorAll('.news-tab').forEach(function(x){x.classList.remove('on');});
+      document.querySelectorAll('.news-tab').forEach(function(x){ x.classList.remove('on'); });
       b.classList.add('on');
-      frame.src='https://www.youtube.com/embed/live_stream?channel='+b.getAttribute('data-ch')+'&autoplay=1';
+      newsKey = (b.textContent||'').toLowerCase().indexOf('bloomberg')>=0 ? 'bloomberg' : 'yahoo';
+      paintNews();
     });
   });
-  /* trump truth social */
+
+  if(frame){ loadNews(); setInterval(loadNews, 300000); }
+
+/* trump truth social */
   var body=document.getElementById('feedBody');
   var ava=document.getElementById('feedAva');
   function renderTruth(posts){
